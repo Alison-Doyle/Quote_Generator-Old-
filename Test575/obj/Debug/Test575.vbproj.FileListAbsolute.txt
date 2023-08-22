@@ -1,0 +1,19 @@
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.vbproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.vbproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.vbproj.ResolveComReference.cache
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.EmployeeCalculator.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.ExpencesCalculator.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.MainMenu.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.EmployeeManagement.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.QuoteGen.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.QuoteGenerator2.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.QuoteGen5.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.QuoteGenerator3.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.Resources.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.QuoteGenerator4.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.StockViewer.resources
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.vbproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Test575.vbproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Quote Generator2.exe
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Quote Generator2.xml
+C:\Users\Admin\Desktop\Test575\Test575\obj\Debug\Quote Generator2.pdb
