@@ -1,24 +1,37 @@
 ﻿Public Class MainMenu
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub Employees_Click(sender As Object, e As EventArgs) Handles Employees.Click 'Login Button
-        Dim User As String
-        Dim PAss As String
-        User = "test"
-        PAss = "test"
-        If Username.Text = User And Password.Text = PAss Then
-            EmployeeManagement.Show()
+        Dim allCredentialsCorrect As Boolean = checkCredentials(Username.Text, Password.Text)
+
+        If allCredentialsCorrect = True Then
+            Dim employeeManagement As New EmployeeManagement
+            employeeManagement.Show()
             Me.Hide()
         Else
-            MessageBox.Show("Failure! Access Is Not Granted")
-
+            MessageBox.Show("Credentials Incorrect")
         End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Quote Generator Button
-        QuoteGen.Show()
+        Dim newQuoteForm As New QuoteGen
+        newQuoteForm.Show()
         Me.Hide()
+    End Sub
+
+    Function checkCredentials(enteredUsername, enteredPassword)
+        Dim correctUsername As String = My.Settings.EmployeeManagerUsername
+        Dim correctPassword As String = My.Settings.EmployeeManagerPassword
+        Dim allCredentialsCorrect As Boolean
+
+        If enteredUsername = correctUsername And enteredPassword = correctPassword Then
+            allCredentialsCorrect = True
+        Else
+            allCredentialsCorrect = False
+        End If
+
+        Return allCredentialsCorrect
+    End Function
+
+    Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

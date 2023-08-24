@@ -12,7 +12,7 @@ Public Class QuoteGen
     Dim table As New DataTable("Table")
     Private Sub Button2_Click(sender As Object, e As EventArgs)  'Next Page
         QuoteGenerator2.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
     Private Sub QuoteGenerator_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Defining LoadDir/Load Directory
         LoadDir = Environment.CurrentDirectory & "\"
@@ -21,23 +21,23 @@ Public Class QuoteGen
     Private Sub BackBtn_Click_1(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back to MainMenu (Bottom)
         Dim frm = New MainMenu
         frm.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Next Page (Bottom)
         QuoteGenerator2.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click 'Next Page (top)
         QuoteGenerator2.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click 'Back to main menu (top)
         Dim frm = New MainMenu
         frm.Show()
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click

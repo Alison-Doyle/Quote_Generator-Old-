@@ -1,7 +1,24 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" UseMySettingsClassName="true">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test_quotes</Value>
+    </Setting>
+    <Setting Name="EmployeeManagerUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">keith</Value>
+    </Setting>
+    <Setting Name="EmployeeManagerPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sleater123</Value>
+    </Setting>
+    <Setting Name="DatabasePassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sleater123</Value>
+    </Setting>
+    <Setting Name="EmployeeTableName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">employees</Value>
+    </Setting>
+    <Setting Name="InventoryTableName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">inventory</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

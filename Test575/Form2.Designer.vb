@@ -55,9 +55,10 @@ Partial Class EmployeeManagement
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(395, 455)
+        Me.Button1.Location = New System.Drawing.Point(527, 560)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(160, 23)
+        Me.Button1.Size = New System.Drawing.Size(213, 28)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Refersh Employee Quick View"
         Me.Button1.UseVisualStyleBackColor = True
@@ -76,9 +77,11 @@ Partial Class EmployeeManagement
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Emp_Viewer.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Emp_Viewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Emp_Viewer.Location = New System.Drawing.Point(395, 9)
+        Me.Emp_Viewer.Location = New System.Drawing.Point(527, 11)
+        Me.Emp_Viewer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Emp_Viewer.Name = "Emp_Viewer"
-        Me.Emp_Viewer.Size = New System.Drawing.Size(521, 440)
+        Me.Emp_Viewer.RowHeadersWidth = 51
+        Me.Emp_Viewer.Size = New System.Drawing.Size(695, 542)
         Me.Emp_Viewer.TabIndex = 63
         '
         'GroupBox2
@@ -95,9 +98,11 @@ Partial Class EmployeeManagement
         Me.GroupBox2.Controls.Add(Me.Update_Position)
         Me.GroupBox2.Controls.Add(Me.Update_Name)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 246)
+        Me.GroupBox2.Location = New System.Drawing.Point(16, 303)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(377, 232)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(503, 286)
         Me.GroupBox2.TabIndex = 62
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Update Employees"
@@ -105,9 +110,10 @@ Partial Class EmployeeManagement
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(257, 198)
+        Me.Button4.Location = New System.Drawing.Point(343, 244)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(108, 23)
+        Me.Button4.Size = New System.Drawing.Size(144, 28)
         Me.Button4.TabIndex = 6
         Me.Button4.Text = "Remove Employee"
         Me.Button4.UseVisualStyleBackColor = True
@@ -115,9 +121,10 @@ Partial Class EmployeeManagement
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(9, 198)
+        Me.Button3.Location = New System.Drawing.Point(12, 244)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(108, 23)
+        Me.Button3.Size = New System.Drawing.Size(144, 28)
         Me.Button3.TabIndex = 4
         Me.Button3.Text = "Search Employees"
         Me.Button3.UseVisualStyleBackColor = True
@@ -125,9 +132,10 @@ Partial Class EmployeeManagement
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(134, 198)
+        Me.Button2.Location = New System.Drawing.Point(179, 244)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(108, 23)
+        Me.Button2.Size = New System.Drawing.Size(144, 28)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Update"
         Me.Button2.UseVisualStyleBackColor = True
@@ -136,28 +144,31 @@ Partial Class EmployeeManagement
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 119)
+        Me.Label6.Location = New System.Drawing.Point(8, 146)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(38, 13)
+        Me.Label6.Size = New System.Drawing.Size(49, 17)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Notes:"
         '
         'Update_Notes
         '
         Me.Update_Notes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Update_Notes.Location = New System.Drawing.Point(84, 116)
+        Me.Update_Notes.Location = New System.Drawing.Point(112, 143)
+        Me.Update_Notes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Update_Notes.Multiline = True
         Me.Update_Notes.Name = "Update_Notes"
-        Me.Update_Notes.Size = New System.Drawing.Size(282, 76)
+        Me.Update_Notes.Size = New System.Drawing.Size(375, 93)
         Me.Update_Notes.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(6, 38)
+        Me.Label7.Location = New System.Drawing.Point(8, 47)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 13)
+        Me.Label7.Size = New System.Drawing.Size(75, 17)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Full Name:"
         '
@@ -165,44 +176,49 @@ Partial Class EmployeeManagement
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(6, 64)
+        Me.Label8.Location = New System.Drawing.Point(8, 79)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(47, 13)
+        Me.Label8.Size = New System.Drawing.Size(62, 17)
         Me.Label8.TabIndex = 5
         Me.Label8.Text = "Position:"
         '
         'Update_Wage
         '
         Me.Update_Wage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Update_Wage.Location = New System.Drawing.Point(83, 90)
+        Me.Update_Wage.Location = New System.Drawing.Point(111, 111)
+        Me.Update_Wage.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Update_Wage.Name = "Update_Wage"
-        Me.Update_Wage.Size = New System.Drawing.Size(282, 20)
+        Me.Update_Wage.Size = New System.Drawing.Size(375, 23)
         Me.Update_Wage.TabIndex = 2
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(6, 90)
+        Me.Label9.Location = New System.Drawing.Point(8, 111)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(72, 13)
+        Me.Label9.Size = New System.Drawing.Size(94, 17)
         Me.Label9.TabIndex = 4
         Me.Label9.Text = "Hourly Wage:"
         '
         'Update_Position
         '
         Me.Update_Position.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Update_Position.Location = New System.Drawing.Point(83, 64)
+        Me.Update_Position.Location = New System.Drawing.Point(111, 79)
+        Me.Update_Position.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Update_Position.Name = "Update_Position"
-        Me.Update_Position.Size = New System.Drawing.Size(282, 20)
+        Me.Update_Position.Size = New System.Drawing.Size(375, 23)
         Me.Update_Position.TabIndex = 1
         '
         'Update_Name
         '
         Me.Update_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Update_Name.Location = New System.Drawing.Point(83, 38)
+        Me.Update_Name.Location = New System.Drawing.Point(111, 47)
+        Me.Update_Name.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Update_Name.Name = "Update_Name"
-        Me.Update_Name.Size = New System.Drawing.Size(282, 20)
+        Me.Update_Name.Size = New System.Drawing.Size(375, 23)
         Me.Update_Name.TabIndex = 0
         '
         'GroupBox1
@@ -217,9 +233,11 @@ Partial Class EmployeeManagement
         Me.GroupBox1.Controls.Add(Me.Emp_Position)
         Me.GroupBox1.Controls.Add(Me.Emp_Name)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 9)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 11)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(377, 231)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(503, 284)
         Me.GroupBox1.TabIndex = 61
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Insert New Employee"
@@ -227,9 +245,10 @@ Partial Class EmployeeManagement
         'Insert
         '
         Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Insert.Location = New System.Drawing.Point(9, 198)
+        Me.Insert.Location = New System.Drawing.Point(12, 244)
+        Me.Insert.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Insert.Name = "Insert"
-        Me.Insert.Size = New System.Drawing.Size(75, 23)
+        Me.Insert.Size = New System.Drawing.Size(100, 28)
         Me.Insert.TabIndex = 4
         Me.Insert.Text = "Insert"
         Me.Insert.UseVisualStyleBackColor = True
@@ -238,28 +257,31 @@ Partial Class EmployeeManagement
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 116)
+        Me.Label5.Location = New System.Drawing.Point(8, 143)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(38, 13)
+        Me.Label5.Size = New System.Drawing.Size(49, 17)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "Notes:"
         '
         'Emp_Notes
         '
         Me.Emp_Notes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Emp_Notes.Location = New System.Drawing.Point(83, 116)
+        Me.Emp_Notes.Location = New System.Drawing.Point(111, 143)
+        Me.Emp_Notes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Emp_Notes.Multiline = True
         Me.Emp_Notes.Name = "Emp_Notes"
-        Me.Emp_Notes.Size = New System.Drawing.Size(282, 76)
+        Me.Emp_Notes.Size = New System.Drawing.Size(375, 93)
         Me.Emp_Notes.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 38)
+        Me.Label1.Location = New System.Drawing.Point(8, 47)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.Size = New System.Drawing.Size(75, 17)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Full Name:"
         '
@@ -267,66 +289,73 @@ Partial Class EmployeeManagement
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 64)
+        Me.Label4.Location = New System.Drawing.Point(8, 79)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(47, 13)
+        Me.Label4.Size = New System.Drawing.Size(62, 17)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Position:"
         '
         'Emp_Wage
         '
         Me.Emp_Wage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Emp_Wage.Location = New System.Drawing.Point(83, 90)
+        Me.Emp_Wage.Location = New System.Drawing.Point(111, 111)
+        Me.Emp_Wage.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Emp_Wage.Name = "Emp_Wage"
-        Me.Emp_Wage.Size = New System.Drawing.Size(282, 20)
+        Me.Emp_Wage.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Wage.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 90)
+        Me.Label3.Location = New System.Drawing.Point(8, 111)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
+        Me.Label3.Size = New System.Drawing.Size(94, 17)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Hourly Wage:"
         '
         'Emp_Position
         '
         Me.Emp_Position.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Emp_Position.Location = New System.Drawing.Point(83, 64)
+        Me.Emp_Position.Location = New System.Drawing.Point(111, 79)
+        Me.Emp_Position.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Emp_Position.Name = "Emp_Position"
-        Me.Emp_Position.Size = New System.Drawing.Size(282, 20)
+        Me.Emp_Position.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Position.TabIndex = 1
         '
         'Emp_Name
         '
         Me.Emp_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Emp_Name.Location = New System.Drawing.Point(83, 38)
+        Me.Emp_Name.Location = New System.Drawing.Point(111, 47)
+        Me.Emp_Name.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Emp_Name.Name = "Emp_Name"
-        Me.Emp_Name.Size = New System.Drawing.Size(282, 20)
+        Me.Emp_Name.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Name.TabIndex = 0
         '
         'BackBtn
         '
-        Me.BackBtn.Location = New System.Drawing.Point(841, 455)
+        Me.BackBtn.Location = New System.Drawing.Point(1121, 560)
+        Me.BackBtn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BackBtn.Name = "BackBtn"
-        Me.BackBtn.Size = New System.Drawing.Size(75, 23)
+        Me.BackBtn.Size = New System.Drawing.Size(100, 28)
         Me.BackBtn.TabIndex = 1
         Me.BackBtn.Text = "Back"
         Me.BackBtn.UseVisualStyleBackColor = True
         '
         'EmployeeManagement
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(929, 486)
+        Me.ClientSize = New System.Drawing.Size(1239, 598)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Emp_Viewer)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BackBtn)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "EmployeeManagement"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Employee Management"
