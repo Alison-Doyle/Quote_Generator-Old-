@@ -12,9 +12,15 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Quote Generator Button
-        Dim newQuoteForm As New QuoteGen
-        newQuoteForm.Show()
-        Me.Hide()
+        If Application.OpenForms().OfType(Of QuoteGen).Any Then
+            Dim quote = QuoteGen
+            quote.Show()
+            Me.Hide()
+        Else
+            Dim newQuote = New QuoteGen
+            newQuote.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Function checkCredentials(enteredUsername, enteredPassword)

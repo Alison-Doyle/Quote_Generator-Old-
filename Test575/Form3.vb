@@ -1,8 +1,5 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports Microsoft.Office.Interop
 Imports MySql.Data.MySqlClient
-Imports System.IO
-Imports System.Data.DataTable
 
 Public Class QuoteGen
     Dim LoadDir As String
@@ -19,31 +16,24 @@ Public Class QuoteGen
         Me.AutoScroll = True
     End Sub
     Private Sub BackBtn_Click_1(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back to MainMenu (Bottom)
-        Dim frm = New MainMenu
-        frm.Show()
-        Me.Close()
+        goToMainMenu()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Next Page (Bottom)
-        QuoteGenerator2.Show()
-        Me.Close()
+        goToPage2()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click 'Next Page (top)
-        QuoteGenerator2.Show()
-        Me.Close()
+        goToPage2()
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click 'Back to main menu (top)
-        Dim frm = New MainMenu
-        frm.Show()
-        Me.Close()
+        goToMainMenu()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Me.Proj_DocViewer.Rows.Add(Proj_DocDesc.Text, Proj_DocOwner.Text)
     End Sub
-
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click  'INSERT BUTTON @ BOTTOM OF PAGE
         Try
@@ -143,33 +133,69 @@ Public Class QuoteGen
         MessageBox.Show("Quote Updated")
     End Sub
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click 'Create File
+        createExcelFile(Doc_CompanyName.Text, Doc_QuoteNo.Text, Doc_FileName.Text, Doc_DocLocation.Text)
+    End Sub
+
+    Sub goToMainMenu()
+        Dim menuForm = MainMenu
+        menuForm.Show()
+        Me.Close()
+    End Sub
+
+    Sub goToPage2()
+        Dim page2 = QuoteGenerator2
+        page2.Show()
+        Me.Close()
+    End Sub
+
+    Sub createExcelFile(companyName, quoteNumber, enteredFileName, enteredFilePath)
+        Dim quoteTemplatePath As String = Environment.CurrentDirectory & "/Resources/Quote_Template.xlsx"
+        Dim quoteFilePath As String
+        Dim fileName As String
+
+        'Application Variables
+        Dim excelApp As New Excel.Application
+
         Try
-            MyExcel.Workbooks.Open(LoadDir & "Resources\Quote_Template(ReadOnly).xlsx") 'Replace QN and þ (COMPANY NAME)
-            MyExcel.Sheets("Sheet1").activate()
+            'Open template
+            excelApp.Visible = False
+            excelApp.Workbooks.Open(quoteTemplatePath)
+            excelApp.Sheets("Sheet1").activate()
 
-            MyExcel.Cells.Replace("þ", Doc_CompanyName.Text)
-            MyExcel.Cells.Replace("QN", Doc_QuoteNo.Text)
+            'Fill in template constants
+            excelApp.Cells.Replace("þ", companyName)
+            excelApp.Cells.Replace("QN", quoteNumber)
 
-            Dim newName As String
-            newName = Doc_FileName.Text
+            'Getting filepath
+            If String.IsNullOrEmpty(enteredFilePath) Then
+                quoteFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\"
+            Else
+                quoteFilePath = enteredFilePath
+            End If
 
-            MyExcel.ActiveWorkbook.SaveAs("C:\Users\Admin\Desktop\" & Doc_FileName.Text)
-            MyExcel.Quit()
+            'Getting filename
+            If String.IsNullOrEmpty(enteredFileName) Then
+                fileName = "Quote " & quoteNumber & "(" & companyName & ")"
+            Else
+                If enteredFileName.Contains(".xlsx") Then
+                    fileName = enteredFileName
+                ElseIf enteredFileName.Contains(".xls") Then
+                    fileName = enteredFileName.Replace(".xls", ".xlsx")
+                Else
+                    fileName = enteredFileName & ".xlsx"
+                End If
+            End If
 
-            Runtime.InteropServices.Marshal.ReleaseComObject(MyExcel.Workbooks) 'ᚹ
+            'Save File and close excel
+            excelApp.ActiveWorkbook.SaveAs(quoteFilePath & fileName)
 
-            MessageBox.Show("Quote Created")
+            MessageBox.Show("Quote document save at: " & quoteFilePath & fileName)
         Catch ex As Exception
-            MessageBox.Show("Oops! Something went wrong!")
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            'Close Excel Application
+            excelApp.Workbooks.Close()
+            excelApp.Quit()
         End Try
     End Sub
-
-    Private Sub Doc_RevisionNumber_TextChanged(sender As Object, e As EventArgs) Handles Doc_RevisionNumber.TextChanged
-
-    End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
-    End Sub
-
 End Class
