@@ -22,7 +22,7 @@ Partial Class QuoteGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Doc_FileName = New System.Windows.Forms.TextBox()
@@ -30,9 +30,9 @@ Partial Class QuoteGen
         Me.Doc_CompanyName = New System.Windows.Forms.TextBox()
         Me.Doc_QuoteNo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Doc_DocLocation = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -62,6 +62,7 @@ Partial Class QuoteGen
         Me.Button9 = New System.Windows.Forms.Button()
         Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.selectFileLocationButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -71,6 +72,7 @@ Partial Class QuoteGen
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.selectFileLocationButton)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Doc_FileName)
         Me.GroupBox1.Controls.Add(Me.Label12)
@@ -82,10 +84,10 @@ Partial Class QuoteGen
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(16, 123)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(868, 190)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(868, 196)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "General Details"
@@ -93,8 +95,8 @@ Partial Class QuoteGen
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(739, 154)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Location = New System.Drawing.Point(739, 160)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(121, 28)
         Me.Button1.TabIndex = 4
@@ -105,7 +107,7 @@ Partial Class QuoteGen
         '
         Me.Doc_FileName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_FileName.Location = New System.Drawing.Point(312, 33)
-        Me.Doc_FileName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_FileName.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_FileName.Name = "Doc_FileName"
         Me.Doc_FileName.Size = New System.Drawing.Size(273, 26)
         Me.Doc_FileName.TabIndex = 3
@@ -125,16 +127,17 @@ Partial Class QuoteGen
         '
         Me.Doc_CompanyName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_CompanyName.Location = New System.Drawing.Point(312, 68)
-        Me.Doc_CompanyName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_CompanyName.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_CompanyName.Name = "Doc_CompanyName"
         Me.Doc_CompanyName.Size = New System.Drawing.Size(273, 26)
         Me.Doc_CompanyName.TabIndex = 0
         '
         'Doc_QuoteNo
         '
+        Me.Doc_QuoteNo.BackColor = System.Drawing.SystemColors.Window
         Me.Doc_QuoteNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_QuoteNo.Location = New System.Drawing.Point(312, 102)
-        Me.Doc_QuoteNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_QuoteNo.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_QuoteNo.Name = "Doc_QuoteNo"
         Me.Doc_QuoteNo.Size = New System.Drawing.Size(273, 26)
         Me.Doc_QuoteNo.TabIndex = 1
@@ -150,16 +153,15 @@ Partial Class QuoteGen
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Quote Number:"
         '
-        'Label1
+        'Doc_DocLocation
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(8, 68)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(133, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Company Name:"
+        Me.Doc_DocLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Doc_DocLocation.Location = New System.Drawing.Point(312, 136)
+        Me.Doc_DocLocation.Margin = New System.Windows.Forms.Padding(4)
+        Me.Doc_DocLocation.Name = "Doc_DocLocation"
+        Me.Doc_DocLocation.ReadOnly = True
+        Me.Doc_DocLocation.Size = New System.Drawing.Size(273, 26)
+        Me.Doc_DocLocation.TabIndex = 0
         '
         'Label3
         '
@@ -172,14 +174,16 @@ Partial Class QuoteGen
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Document Location:"
         '
-        'Doc_DocLocation
+        'Label1
         '
-        Me.Doc_DocLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Doc_DocLocation.Location = New System.Drawing.Point(312, 136)
-        Me.Doc_DocLocation.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Doc_DocLocation.Name = "Doc_DocLocation"
-        Me.Doc_DocLocation.Size = New System.Drawing.Size(273, 26)
-        Me.Doc_DocLocation.TabIndex = 0
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(8, 68)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(133, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Company Name:"
         '
         'GroupBox2
         '
@@ -191,10 +195,10 @@ Partial Class QuoteGen
         Me.GroupBox2.Controls.Add(Me.Doc_RevisionNumber)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(16, 321)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(868, 146)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(868, 145)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "1. Document Details"
@@ -236,7 +240,7 @@ Partial Class QuoteGen
         '
         Me.Doc_DocOwner.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_DocOwner.Location = New System.Drawing.Point(312, 72)
-        Me.Doc_DocOwner.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_DocOwner.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_DocOwner.Name = "Doc_DocOwner"
         Me.Doc_DocOwner.Size = New System.Drawing.Size(273, 26)
         Me.Doc_DocOwner.TabIndex = 2
@@ -245,7 +249,7 @@ Partial Class QuoteGen
         '
         Me.Doc_RefNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_RefNumber.Location = New System.Drawing.Point(312, 107)
-        Me.Doc_RefNumber.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_RefNumber.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_RefNumber.Name = "Doc_RefNumber"
         Me.Doc_RefNumber.Size = New System.Drawing.Size(273, 26)
         Me.Doc_RefNumber.TabIndex = 3
@@ -254,7 +258,7 @@ Partial Class QuoteGen
         '
         Me.Doc_RevisionNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Doc_RevisionNumber.Location = New System.Drawing.Point(312, 38)
-        Me.Doc_RevisionNumber.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Doc_RevisionNumber.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_RevisionNumber.Name = "Doc_RevisionNumber"
         Me.Doc_RevisionNumber.Size = New System.Drawing.Size(273, 26)
         Me.Doc_RevisionNumber.TabIndex = 1
@@ -275,9 +279,9 @@ Partial Class QuoteGen
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(16, 474)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(868, 654)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
@@ -287,7 +291,7 @@ Partial Class QuoteGen
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.Location = New System.Drawing.Point(12, 606)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(207, 28)
         Me.Button6.TabIndex = 5
@@ -297,14 +301,14 @@ Partial Class QuoteGen
         'Proj_DocViewer
         '
         Me.Proj_DocViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.Proj_DocViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Proj_DocViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_DocViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.Proj_DocViewer.EnableHeadersVisualStyles = False
         Me.Proj_DocViewer.Location = New System.Drawing.Point(312, 191)
-        Me.Proj_DocViewer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_DocViewer.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocViewer.Name = "Proj_DocViewer"
         Me.Proj_DocViewer.RowHeadersWidth = 51
         Me.Proj_DocViewer.Size = New System.Drawing.Size(548, 443)
@@ -326,7 +330,7 @@ Partial Class QuoteGen
         '
         Me.Proj_DocDesc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Proj_DocDesc.Location = New System.Drawing.Point(12, 245)
-        Me.Proj_DocDesc.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_DocDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocDesc.Multiline = True
         Me.Proj_DocDesc.Name = "Proj_DocDesc"
         Me.Proj_DocDesc.Size = New System.Drawing.Size(291, 352)
@@ -347,7 +351,7 @@ Partial Class QuoteGen
         '
         Me.Proj_DocOwner.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Proj_DocOwner.Location = New System.Drawing.Point(12, 191)
-        Me.Proj_DocOwner.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_DocOwner.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocOwner.Name = "Proj_DocOwner"
         Me.Proj_DocOwner.Size = New System.Drawing.Size(291, 26)
         Me.Proj_DocOwner.TabIndex = 3
@@ -367,7 +371,7 @@ Partial Class QuoteGen
         '
         Me.Proj_Address.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Proj_Address.Location = New System.Drawing.Point(312, 114)
-        Me.Proj_Address.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_Address.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_Address.Name = "Proj_Address"
         Me.Proj_Address.Size = New System.Drawing.Size(273, 26)
         Me.Proj_Address.TabIndex = 2
@@ -376,7 +380,7 @@ Partial Class QuoteGen
         '
         Me.Proj_EnquirerTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Proj_EnquirerTitle.Location = New System.Drawing.Point(312, 80)
-        Me.Proj_EnquirerTitle.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_EnquirerTitle.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_EnquirerTitle.Name = "Proj_EnquirerTitle"
         Me.Proj_EnquirerTitle.Size = New System.Drawing.Size(273, 26)
         Me.Proj_EnquirerTitle.TabIndex = 1
@@ -385,7 +389,7 @@ Partial Class QuoteGen
         '
         Me.Proj_EquirerName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Proj_EquirerName.Location = New System.Drawing.Point(312, 46)
-        Me.Proj_EquirerName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proj_EquirerName.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_EquirerName.Name = "Proj_EquirerName"
         Me.Proj_EquirerName.Size = New System.Drawing.Size(273, 26)
         Me.Proj_EquirerName.TabIndex = 0
@@ -427,7 +431,7 @@ Partial Class QuoteGen
         '
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.Location = New System.Drawing.Point(400, 1135)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(112, 28)
         Me.Button5.TabIndex = 6
@@ -437,7 +441,7 @@ Partial Class QuoteGen
         'Button7
         '
         Me.Button7.Location = New System.Drawing.Point(772, 15)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(112, 28)
         Me.Button7.TabIndex = 1
@@ -447,7 +451,7 @@ Partial Class QuoteGen
         'Button8
         '
         Me.Button8.Location = New System.Drawing.Point(16, 15)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button8.Margin = New System.Windows.Forms.Padding(4)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(112, 28)
         Me.Button8.TabIndex = 0
@@ -457,7 +461,7 @@ Partial Class QuoteGen
         'BackBtn
         '
         Me.BackBtn.Location = New System.Drawing.Point(16, 1135)
-        Me.BackBtn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BackBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.BackBtn.Name = "BackBtn"
         Me.BackBtn.Size = New System.Drawing.Size(112, 28)
         Me.BackBtn.TabIndex = 5
@@ -467,7 +471,7 @@ Partial Class QuoteGen
         'Button9
         '
         Me.Button9.Location = New System.Drawing.Point(772, 1135)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button9.Margin = New System.Windows.Forms.Padding(4)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(112, 28)
         Me.Button9.TabIndex = 6
@@ -485,12 +489,22 @@ Partial Class QuoteGen
         '
         Me.PictureBox1.Image = Global.Test575.My.Resources.Resources.Logo
         Me.PictureBox1.Location = New System.Drawing.Point(28, 15)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(871, 102)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
+        '
+        'selectFileLocationButton
+        '
+        Me.selectFileLocationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.selectFileLocationButton.Location = New System.Drawing.Point(592, 135)
+        Me.selectFileLocationButton.Name = "selectFileLocationButton"
+        Me.selectFileLocationButton.Size = New System.Drawing.Size(121, 28)
+        Me.selectFileLocationButton.TabIndex = 5
+        Me.selectFileLocationButton.Text = "Pick Location"
+        Me.selectFileLocationButton.UseVisualStyleBackColor = True
         '
         'QuoteGen
         '
@@ -507,7 +521,7 @@ Partial Class QuoteGen
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "QuoteGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Quote Generator - Page 1"
@@ -562,4 +576,5 @@ Partial Class QuoteGen
     Friend WithEvents Doc_FileName As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents selectFileLocationButton As Button
 End Class
