@@ -3,6 +3,8 @@ Imports System.Data.DataTable
 Imports Microsoft.Office.Interop
 Imports System.IO
 Public Class QuoteGenerator3
+    Public quoteLocation As String
+
     Dim MysqlConn As MySqlConnection
     Dim COMMAND As MySqlCommand
     Dim Mysqlred As MySqlDataReader

@@ -1,10 +1,9 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Windows
-Imports DocumentFormat.OpenXml.Spreadsheet
 
 Public Class QuoteGen
     Dim LoadDir As String
-    Dim quoteLocation As String
+    Public quoteLocation As String
     Private Sub Button2_Click(sender As Object, e As EventArgs)  'Next Page
         QuoteGenerator2.Show()
         Me.Close()
@@ -66,7 +65,8 @@ Public Class QuoteGen
     End Sub
 
     Sub goToPage2()
-        Dim page2 = QuoteGenerator2
+        Dim page2 = New QuoteGenerator2
+        page2.quoteLocation = quoteLocation
         page2.Show()
         Me.Close()
     End Sub
