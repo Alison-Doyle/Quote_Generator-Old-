@@ -139,7 +139,7 @@ Public Class QuoteGen
 
     Sub populateDocumentSection1AndSection2()
         'Simplifying variable names for readablity
-        Dim revisionNumber As Integer = Doc_RevisionNumber.Text
+        Dim revisionNumber As String = Doc_RevisionNumber.Text
         Dim documentOwner As String = Doc_DocOwner.Text
         Dim referenceNumber As String = Doc_RefNumber.Text
         Dim enquirerName As String = Proj_EquirerName.Text
@@ -160,8 +160,8 @@ Public Class QuoteGen
         Dim filePath As String = quoteLocation
         Dim excelApp As New Excel.Application
 
-        'Try
-        excelApp.Visible = False
+        Try
+            excelApp.Visible = False
             excelApp.Workbooks.Open(filePath)
             excelApp.Sheets("Sheet1").activate()
 
@@ -185,26 +185,25 @@ Public Class QuoteGen
 
             'Fetching data from datatable
             For i As Integer = 0 To Proj_DocViewer.Rows.Count - 1 Step +1
-            projectDocumentsData.Add(New RelatedDocumentation(Proj_DocViewer.Rows(i).Cells(0), Proj_DocViewer.Rows(i).Cells(1)))
-        Next
+                projectDocumentsData.Add(New RelatedDocumentation(Proj_DocViewer.Rows(i).Cells(0).Value.ToString(), Proj_DocViewer.Rows(i).Cells(1).Value.ToString()))
+            Next
 
             'Filling in related documentation
-            excelApp.Range("AC:AH46").Activate()
+            excelApp.Range("AC16:AH46").Activate()
             For i As Integer = 0 To projectDocumentsData.Count - 1 Step +1
                 Dim index As Integer = 16 + i
 
                 If index <= 46 Then
-                    MessageBox.Show("index: " & index.ToString())
-                    excelApp.Range("AC" & index).Value = projectDocumentsData(i).description
-                    excelApp.Range("AH" & index).Value = projectDocumentsData(i).owner
+                    excelApp.Range("AC" & index.ToString()).Value = projectDocumentsData(i).description
+                    excelApp.Range("AH" & index.ToString()).Value = projectDocumentsData(i).owner
                 End If
             Next
 
             MessageBox.Show("Sections 1 and 2 filled in")
-        'Catch ex As Exception
-        '    MessageBox.Show("Error: " & ex.Message)
-        'Finally
-        Try
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            Try
                 excelApp.ActiveWorkbook.Save()
             Catch ex As Exception
             End Try
@@ -218,6 +217,6 @@ Public Class QuoteGen
             GC.WaitForPendingFinalizers()
             GC.Collect()
             GC.WaitForPendingFinalizers()
-        'End Try
+        End Try
     End Sub
 End Class
