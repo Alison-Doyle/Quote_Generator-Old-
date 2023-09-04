@@ -262,6 +262,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RelatedDocumentation.vb" />
+    <Compile Include="standardProgramFunctions.vb" />
     <Compile Include="StockViewer.Designer.vb">
       <DependentUpon>StockViewer.vb</DependentUpon>
     </Compile>

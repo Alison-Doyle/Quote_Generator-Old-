@@ -1,8 +1,7 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports Microsoft.Office.Interop
 Imports MySql.Data.MySqlClient
-Imports System.IO
-Imports System.Data.DataTable
+Imports Test575.standardProgramFunctions
+
 Public Class QuoteGen5
     Dim LoadDir As String
     Dim MyExcel As New Excel.Application
@@ -15,9 +14,7 @@ Public Class QuoteGen5
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to Main Menu
-        Dim frm = New MainMenu
-        frm.Show()
-        Me.Hide()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click 'Previous Page

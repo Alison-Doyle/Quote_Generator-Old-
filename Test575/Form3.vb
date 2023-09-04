@@ -1,19 +1,19 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Windows
+Imports Test575.standardProgramFunctions
 
 Public Class QuoteGen
     Dim LoadDir As String
     Public quoteLocation As String
     Private Sub Button2_Click(sender As Object, e As EventArgs)  'Next Page
-        QuoteGenerator2.Show()
-        Me.Close()
+        goToPage2()
     End Sub
     Private Sub QuoteGenerator_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Defining LoadDir/Load Directory
         LoadDir = Environment.CurrentDirectory & "\"
         Me.AutoScroll = True
     End Sub
     Private Sub BackBtn_Click_1(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back to MainMenu (Bottom)
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Next Page (Bottom)
@@ -25,7 +25,7 @@ Public Class QuoteGen
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click 'Back to main menu (top)
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -36,19 +36,12 @@ Public Class QuoteGen
         populateDocumentSection1AndSection2()
     End Sub
 
-
     Private Sub selectFileLocationButton_Click(sender As Object, e As EventArgs) Handles selectFileLocationButton.Click
         selectFilePath()
     End Sub
 
-    Sub goToMainMenu()
-        Dim menuForm = MainMenu
-        menuForm.Show()
-        Me.Close()
-    End Sub
-
     Sub goToPage2()
-        Dim page2 = New QuoteGenerator2
+        Dim page2 = QuoteGenerator2
         page2.quoteLocation = quoteLocation
         page2.Show()
         Me.Hide()
@@ -100,7 +93,7 @@ Public Class QuoteGen
             excelApp.ActiveWorkbook.SaveAs(quoteFilePath & "\" & fileName)
 
             quoteLocation = quoteFilePath & "\" & fileName
-            MessageBox.Show("Quote document save at: " & quoteFilePath & "\" & fileName)
+            MessageBox.Show("Quote document saved at: " & quoteFilePath & "\" & fileName)
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally

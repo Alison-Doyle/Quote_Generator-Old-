@@ -1,6 +1,7 @@
 ﻿
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports MySql.Data.MySqlClient
+Imports Test575.standardProgramFunctions
 
 Public Class QuoteGenerator2
     Public quoteLocation As String
@@ -20,7 +21,7 @@ Public Class QuoteGenerator2
     End Sub
 
     Private Sub BackBtn_Click(sender As Object, e As EventArgs) Handles BackBtn.Click 'Menu Button
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click ' Add to DGV
         Me.Proj_FunctView.Rows.Add(Proj_Function.Text, Proj_FunctQuantity.Text, Proj_FunctDesc.Text)
@@ -35,17 +36,11 @@ Public Class QuoteGenerator2
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Main Menu (top)
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click 'INSERT BUTTON @ BOTTOM OF FORM
         populateDocumentSection3()
-    End Sub
-
-    Sub goToMainMenu()
-        Dim frm = MainMenu
-        frm.Show()
-        Me.Close()
     End Sub
 
     Sub goToLastPage()

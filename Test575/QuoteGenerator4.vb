@@ -1,8 +1,7 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports Microsoft.Office.Interop
 Imports MySql.Data.MySqlClient
-Imports System.IO
-Imports System.Data.DataTable
+Imports Test575.standardProgramFunctions
+
 Public Class QuoteGenerator4
     Public quoteLocation As String
 
@@ -12,13 +11,10 @@ Public Class QuoteGenerator4
     Dim COMMAND As MySqlCommand
     Dim table As New DataTable("Table")
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to MainMenu
-        Dim frm = New MainMenu
-        frm.Show()
-        Me.Hide()
+        returnToMainMenu()
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click 'Back Button (Top)
-        QuoteGenerator3.Show()
-        Me.Hide()
+        goToLastPage()
     End Sub
 
     Private Sub QuoteGenerator4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -27,24 +23,19 @@ Public Class QuoteGenerator4
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim frm = New MainMenu
-        frm.Show()
-        Me.Hide()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click 'Next Page (Top)
-        QuoteGen5.Show()
-        Me.Hide()
+        goToNextPage()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'Next Page (Bottom)
-        QuoteGen5.Show()
-        Me.Hide()
+        goToNextPage()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Back Button (Button)
-        QuoteGenerator3.Show()
-        Me.Hide()
+        goToLastPage()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click   'OPENS EMPLOYEE CALCULATOR
@@ -370,7 +361,16 @@ Public Class QuoteGenerator4
         MessageBox.Show("Quote Updated")
     End Sub
 
-    Private Sub Proj_Activate_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Proj_Activate.CellContentClick
+    Sub goToLastPage()
+        Dim page4 = QuoteGenerator3
+        page4.quoteLocation = quoteLocation
+        page4.Show()
+        Me.Hide()
+    End Sub
 
+    Sub goToNextPage()
+        Dim page6 = QuoteGen5
+        page6.Show()
+        Me.Hide()
     End Sub
 End Class

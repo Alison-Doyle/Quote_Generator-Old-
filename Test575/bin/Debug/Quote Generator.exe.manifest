@@ -162,14 +162,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="163328">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="162816">
       <assemblyIdentity name="Quote Generator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3uYAEkxQn+BbkFN6EdshmWXsNjSFgPI7lBMUXxiDF2o=</dsig:DigestValue>
+        <dsig:DigestValue>tvJiWP0GLxyeps0L/Om2YPPMoaAYBg3Mzqh4zDlvpMk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

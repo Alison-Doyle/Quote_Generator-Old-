@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Office.Interop
+Imports Test575.standardProgramFunctions
 
 Public Class QuoteGenerator3
     Public componantsTotal As Double = 0
@@ -11,7 +12,7 @@ Public Class QuoteGenerator3
     End Sub
 
     Private Sub BackBtn_Click(sender As Object, e As EventArgs) Handles BackBtn.Click 'Menu Button (bottom)
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -43,13 +44,9 @@ Public Class QuoteGenerator3
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        goToMainMenu()
+        returnToMainMenu()
     End Sub
-    Private Sub Button6_Click(sender As Object, e As EventArgs)
-        For Each row As DataGridViewRow In Proj_CompViewer.SelectedRows
-            Proj_CompViewer.Rows.Remove(row)
-        Next
-    End Sub
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click ' Next Page(Bottom)
         goToNextPage()
     End Sub
@@ -62,37 +59,18 @@ Public Class QuoteGenerator3
         populateDocumentSection4()
     End Sub
 
-    Sub DGV_Total()
-        Dim colsum As Decimal
-        For Each r As DataGridViewRow In Proj_CompViewer.Rows
-            colsum += r.Cells(3).Value
-            Proj_CompTotal.Text = colsum
-        Next
-    End Sub
-
-    Private Sub Proj_CompTotal_TextChanged(sender As Object, e As EventArgs) Handles Proj_CompTotal.TextChanged
-        'Proj_CompTotal.Text = Proj_CompViewer.Rows(max).Cells(4).Value += row.Cells(4).Value
-        QuoteGenerator4.Proj_CompTotal.Text = Proj_CompTotal.Text
-    End Sub
-
     Sub goToLastPage()
-        Dim page2 As New QuoteGenerator2
+        Dim page2 = QuoteGenerator2
         page2.quoteLocation = quoteLocation
         page2.Show()
         Me.Hide()
     End Sub
 
     Sub goToNextPage()
-        Dim page4 As New QuoteGenerator4
+        Dim page4 = QuoteGenerator4
         page4.quoteLocation = quoteLocation
         page4.Show()
         Me.Hide()
-    End Sub
-
-    Sub goToMainMenu()
-        Dim frm = MainMenu
-        frm.Show()
-        Me.Close()
     End Sub
 
     Function findItemInDatabase()
