@@ -5,22 +5,17 @@
         If allCredentialsCorrect = True Then
             Dim employeeManagement As New EmployeeManagement
             employeeManagement.Show()
-            Me.Hide()
+            Me.Close()
         Else
             MessageBox.Show("Credentials Incorrect")
         End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Quote Generator Button
-        If Application.OpenForms().OfType(Of QuoteGen).Any Then
-            Dim quote = QuoteGen
-            quote.Show()
-            Me.Hide()
-        Else
-            Dim newQuote = New QuoteGen
+
+        Dim newQuote = New QuoteGen
             newQuote.Show()
-            Me.Hide()
-        End If
+        Me.Hide()
     End Sub
 
     Function checkCredentials(enteredUsername, enteredPassword)

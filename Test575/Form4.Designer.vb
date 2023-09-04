@@ -22,12 +22,13 @@ Partial Class QuoteGenerator2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.BackBtn = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Img_Height = New System.Windows.Forms.TextBox()
-        Me.Img_Width = New System.Windows.Forms.TextBox()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Proj_FunctDesc = New System.Windows.Forms.RichTextBox()
         Me.Proj_FunctQuantity = New System.Windows.Forms.TextBox()
@@ -87,8 +88,6 @@ Partial Class QuoteGenerator2
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Img_Height)
-        Me.GroupBox1.Controls.Add(Me.Img_Width)
         Me.GroupBox1.Controls.Add(Me.Button6)
         Me.GroupBox1.Controls.Add(Me.Proj_FunctDesc)
         Me.GroupBox1.Controls.Add(Me.Proj_FunctQuantity)
@@ -115,33 +114,13 @@ Partial Class QuoteGenerator2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "3. Overview of Project"
         '
-        'Img_Height
-        '
-        Me.Img_Height.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Img_Height.Location = New System.Drawing.Point(636, 22)
-        Me.Img_Height.Margin = New System.Windows.Forms.Padding(4)
-        Me.Img_Height.Name = "Img_Height"
-        Me.Img_Height.Size = New System.Drawing.Size(132, 26)
-        Me.Img_Height.TabIndex = 35
-        Me.Img_Height.Visible = False
-        '
-        'Img_Width
-        '
-        Me.Img_Width.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Img_Width.Location = New System.Drawing.Point(495, 22)
-        Me.Img_Width.Margin = New System.Windows.Forms.Padding(4)
-        Me.Img_Width.Name = "Img_Width"
-        Me.Img_Width.Size = New System.Drawing.Size(132, 26)
-        Me.Img_Width.TabIndex = 34
-        Me.Img_Width.Visible = False
-        '
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(649, 698)
+        Me.Button6.Location = New System.Drawing.Point(696, 698)
         Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(207, 28)
+        Me.Button6.Size = New System.Drawing.Size(160, 28)
         Me.Button6.TabIndex = 6
         Me.Button6.Text = "Add to Documentation"
         Me.Button6.UseVisualStyleBackColor = True
@@ -213,13 +192,33 @@ Partial Class QuoteGenerator2
         'Proj_FunctView
         '
         Me.Proj_FunctView.AllowUserToAddRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_FunctView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Proj_FunctView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Proj_FunctView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_FunctView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_FunctView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Proj_FunctView.DefaultCellStyle = DataGridViewCellStyle3
         Me.Proj_FunctView.EnableHeadersVisualStyles = False
         Me.Proj_FunctView.Location = New System.Drawing.Point(8, 734)
         Me.Proj_FunctView.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_FunctView.Name = "Proj_FunctView"
+        Me.Proj_FunctView.RowHeadersVisible = False
         Me.Proj_FunctView.RowHeadersWidth = 51
         Me.Proj_FunctView.Size = New System.Drawing.Size(852, 271)
         Me.Proj_FunctView.TabIndex = 8
@@ -230,7 +229,7 @@ Partial Class QuoteGenerator2
         Me.Column1.HeaderText = "Machine Function"
         Me.Column1.MinimumWidth = 6
         Me.Column1.Name = "Column1"
-        Me.Column1.Width = 234
+        Me.Column1.Width = 179
         '
         'Column2
         '
@@ -238,7 +237,7 @@ Partial Class QuoteGenerator2
         Me.Column2.HeaderText = "Quantity"
         Me.Column2.MinimumWidth = 6
         Me.Column2.Name = "Column2"
-        Me.Column2.Width = 145
+        Me.Column2.Width = 114
         '
         'Column3
         '
@@ -291,10 +290,10 @@ Partial Class QuoteGenerator2
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(725, 326)
+        Me.Button3.Location = New System.Drawing.Point(696, 326)
         Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(135, 28)
+        Me.Button3.Size = New System.Drawing.Size(164, 28)
         Me.Button3.TabIndex = 2
         Me.Button3.Text = "Browse"
         Me.Button3.UseVisualStyleBackColor = True
@@ -306,7 +305,7 @@ Partial Class QuoteGenerator2
         Me.Proj_DiagramPath.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DiagramPath.Name = "Proj_DiagramPath"
         Me.Proj_DiagramPath.ReadOnly = True
-        Me.Proj_DiagramPath.Size = New System.Drawing.Size(569, 26)
+        Me.Proj_DiagramPath.Size = New System.Drawing.Size(541, 26)
         Me.Proj_DiagramPath.TabIndex = 1
         '
         'Label2
@@ -426,6 +425,4 @@ Partial Class QuoteGenerator2
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Button12 As Button
-    Friend WithEvents Img_Height As TextBox
-    Friend WithEvents Img_Width As TextBox
 End Class

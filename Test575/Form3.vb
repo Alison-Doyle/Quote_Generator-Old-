@@ -36,23 +36,6 @@ Public Class QuoteGen
         populateDocumentSection1AndSection2()
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click 'Create File
-        'Making sure company name and quote number are filled in
-        If String.IsNullOrEmpty(Doc_CompanyName.Text) = False And String.IsNullOrEmpty(Doc_QuoteNo.Text) = False Then
-            'Checking if user wants to use a custom file path or default file path
-            If String.IsNullOrEmpty(Doc_DocLocation.Text) = True Then
-
-                Select Case MessageBox.Show("By continuing with a blank document location, you will save the file in the dafault location (Desktop)", "Note", MessageBoxButtons.OKCancel)
-                    Case MessageBoxResult.OK
-                        createExcelFile(Doc_CompanyName.Text, Doc_QuoteNo.Text, Doc_FileName.Text, Doc_DocLocation.Text)
-                End Select
-            Else
-                createExcelFile(Doc_CompanyName.Text, Doc_QuoteNo.Text, Doc_FileName.Text, Doc_DocLocation.Text)
-            End If
-        ElseIf String.IsNullOrEmpty(Doc_CompanyName.Text) = True Or String.IsNullOrEmpty(Doc_QuoteNo.Text) = True Then
-            MessageBox.Show("Company name and/or quote number is empty. Please fill these in before proceeding.")
-        End If
-    End Sub
 
     Private Sub selectFileLocationButton_Click(sender As Object, e As EventArgs) Handles selectFileLocationButton.Click
         selectFilePath()
@@ -68,10 +51,14 @@ Public Class QuoteGen
         Dim page2 = New QuoteGenerator2
         page2.quoteLocation = quoteLocation
         page2.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
-    Sub createExcelFile(companyName, quoteNumber, enteredFileName, enteredFilePath)
+    Sub createExcelFile()
+        Dim companyName = Doc_CompanyName.Text
+        Dim quoteNumber = Doc_QuoteNo.Text
+        Dim enteredFileName = Doc_FileName.Text
+        Dim enteredFilePath = Doc_DocLocation.Text
         Dim quoteTemplatePath As String = Environment.CurrentDirectory & "/Resources/Quote_Template.xlsx"
         Dim quoteFilePath As String
         Dim fileName As String
@@ -86,7 +73,7 @@ Public Class QuoteGen
             excelApp.Sheets("Sheet1").activate()
 
             'Fill in template constants
-            excelApp.Cells.Replace("þ", companyName)
+            excelApp.Cells.Replace("þ", CompanyName)
             excelApp.Cells.Replace("QN", quoteNumber)
 
             'Getting filepath
@@ -98,7 +85,7 @@ Public Class QuoteGen
 
             'Getting filename
             If String.IsNullOrEmpty(enteredFileName) Then
-                fileName = "Quote " & quoteNumber & "(" & companyName & ")"
+                fileName = "Quote " & quoteNumber & "(" & CompanyName & ")"
             Else
                 If enteredFileName.Contains(".xlsx") Then
                     fileName = enteredFileName
@@ -218,5 +205,9 @@ Public Class QuoteGen
             GC.Collect()
             GC.WaitForPendingFinalizers()
         End Try
+    End Sub
+
+    Private Sub createFileButton_Click(sender As Object, e As EventArgs) Handles createFileButton.Click
+        createExcelFile()
     End Sub
 End Class

@@ -4,6 +4,8 @@ Imports MySql.Data.MySqlClient
 Imports System.IO
 Imports System.Data.DataTable
 Public Class QuoteGenerator4
+    Public quoteLocation As String
+
     Dim LoadDir As String
     Dim MyExcel As New Excel.Application
     Dim MysqlConn As MySqlConnection

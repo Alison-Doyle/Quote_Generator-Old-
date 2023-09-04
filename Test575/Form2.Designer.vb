@@ -56,7 +56,7 @@ Partial Class EmployeeManagement
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(527, 560)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(213, 28)
         Me.Button1.TabIndex = 0
@@ -78,8 +78,9 @@ Partial Class EmployeeManagement
         Me.Emp_Viewer.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Emp_Viewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Emp_Viewer.Location = New System.Drawing.Point(527, 11)
-        Me.Emp_Viewer.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Emp_Viewer.Margin = New System.Windows.Forms.Padding(4)
         Me.Emp_Viewer.Name = "Emp_Viewer"
+        Me.Emp_Viewer.RowHeadersVisible = False
         Me.Emp_Viewer.RowHeadersWidth = 51
         Me.Emp_Viewer.Size = New System.Drawing.Size(695, 542)
         Me.Emp_Viewer.TabIndex = 63
@@ -99,9 +100,9 @@ Partial Class EmployeeManagement
         Me.GroupBox2.Controls.Add(Me.Update_Name)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(16, 303)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(503, 286)
         Me.GroupBox2.TabIndex = 62
         Me.GroupBox2.TabStop = False
@@ -111,7 +112,7 @@ Partial Class EmployeeManagement
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.Location = New System.Drawing.Point(343, 244)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(144, 28)
         Me.Button4.TabIndex = 6
@@ -122,7 +123,7 @@ Partial Class EmployeeManagement
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(12, 244)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(144, 28)
         Me.Button3.TabIndex = 4
@@ -133,7 +134,7 @@ Partial Class EmployeeManagement
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Location = New System.Drawing.Point(179, 244)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(144, 28)
         Me.Button2.TabIndex = 5
@@ -155,7 +156,7 @@ Partial Class EmployeeManagement
         '
         Me.Update_Notes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Update_Notes.Location = New System.Drawing.Point(112, 143)
-        Me.Update_Notes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Update_Notes.Margin = New System.Windows.Forms.Padding(4)
         Me.Update_Notes.Multiline = True
         Me.Update_Notes.Name = "Update_Notes"
         Me.Update_Notes.Size = New System.Drawing.Size(375, 93)
@@ -187,7 +188,7 @@ Partial Class EmployeeManagement
         '
         Me.Update_Wage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Update_Wage.Location = New System.Drawing.Point(111, 111)
-        Me.Update_Wage.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Update_Wage.Margin = New System.Windows.Forms.Padding(4)
         Me.Update_Wage.Name = "Update_Wage"
         Me.Update_Wage.Size = New System.Drawing.Size(375, 23)
         Me.Update_Wage.TabIndex = 2
@@ -207,7 +208,7 @@ Partial Class EmployeeManagement
         '
         Me.Update_Position.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Update_Position.Location = New System.Drawing.Point(111, 79)
-        Me.Update_Position.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Update_Position.Margin = New System.Windows.Forms.Padding(4)
         Me.Update_Position.Name = "Update_Position"
         Me.Update_Position.Size = New System.Drawing.Size(375, 23)
         Me.Update_Position.TabIndex = 1
@@ -216,7 +217,7 @@ Partial Class EmployeeManagement
         '
         Me.Update_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Update_Name.Location = New System.Drawing.Point(111, 47)
-        Me.Update_Name.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Update_Name.Margin = New System.Windows.Forms.Padding(4)
         Me.Update_Name.Name = "Update_Name"
         Me.Update_Name.Size = New System.Drawing.Size(375, 23)
         Me.Update_Name.TabIndex = 0
@@ -234,9 +235,9 @@ Partial Class EmployeeManagement
         Me.GroupBox1.Controls.Add(Me.Emp_Name)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(16, 11)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(503, 284)
         Me.GroupBox1.TabIndex = 61
         Me.GroupBox1.TabStop = False
@@ -246,7 +247,7 @@ Partial Class EmployeeManagement
         '
         Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Insert.Location = New System.Drawing.Point(12, 244)
-        Me.Insert.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Insert.Margin = New System.Windows.Forms.Padding(4)
         Me.Insert.Name = "Insert"
         Me.Insert.Size = New System.Drawing.Size(100, 28)
         Me.Insert.TabIndex = 4
@@ -268,7 +269,7 @@ Partial Class EmployeeManagement
         '
         Me.Emp_Notes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Emp_Notes.Location = New System.Drawing.Point(111, 143)
-        Me.Emp_Notes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Emp_Notes.Margin = New System.Windows.Forms.Padding(4)
         Me.Emp_Notes.Multiline = True
         Me.Emp_Notes.Name = "Emp_Notes"
         Me.Emp_Notes.Size = New System.Drawing.Size(375, 93)
@@ -300,7 +301,7 @@ Partial Class EmployeeManagement
         '
         Me.Emp_Wage.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Emp_Wage.Location = New System.Drawing.Point(111, 111)
-        Me.Emp_Wage.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Emp_Wage.Margin = New System.Windows.Forms.Padding(4)
         Me.Emp_Wage.Name = "Emp_Wage"
         Me.Emp_Wage.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Wage.TabIndex = 2
@@ -320,7 +321,7 @@ Partial Class EmployeeManagement
         '
         Me.Emp_Position.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Emp_Position.Location = New System.Drawing.Point(111, 79)
-        Me.Emp_Position.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Emp_Position.Margin = New System.Windows.Forms.Padding(4)
         Me.Emp_Position.Name = "Emp_Position"
         Me.Emp_Position.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Position.TabIndex = 1
@@ -329,7 +330,7 @@ Partial Class EmployeeManagement
         '
         Me.Emp_Name.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Emp_Name.Location = New System.Drawing.Point(111, 47)
-        Me.Emp_Name.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Emp_Name.Margin = New System.Windows.Forms.Padding(4)
         Me.Emp_Name.Name = "Emp_Name"
         Me.Emp_Name.Size = New System.Drawing.Size(375, 23)
         Me.Emp_Name.TabIndex = 0
@@ -337,7 +338,7 @@ Partial Class EmployeeManagement
         'BackBtn
         '
         Me.BackBtn.Location = New System.Drawing.Point(1121, 560)
-        Me.BackBtn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.BackBtn.Margin = New System.Windows.Forms.Padding(4)
         Me.BackBtn.Name = "BackBtn"
         Me.BackBtn.Size = New System.Drawing.Size(100, 28)
         Me.BackBtn.TabIndex = 1
@@ -355,7 +356,7 @@ Partial Class EmployeeManagement
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BackBtn)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EmployeeManagement"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Employee Management"

@@ -22,9 +22,12 @@ Partial Class QuoteGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.createFileButton = New System.Windows.Forms.Button()
+        Me.selectFileLocationButton = New System.Windows.Forms.Button()
         Me.Doc_FileName = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Doc_CompanyName = New System.Windows.Forms.TextBox()
@@ -62,7 +65,6 @@ Partial Class QuoteGen
         Me.Button9 = New System.Windows.Forms.Button()
         Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.selectFileLocationButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -72,8 +74,8 @@ Partial Class QuoteGen
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.createFileButton)
         Me.GroupBox1.Controls.Add(Me.selectFileLocationButton)
-        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Doc_FileName)
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Doc_CompanyName)
@@ -92,16 +94,27 @@ Partial Class QuoteGen
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "General Details"
         '
-        'Button1
+        'createFileButton
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(739, 160)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(121, 28)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Create File"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.createFileButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.createFileButton.Location = New System.Drawing.Point(760, 160)
+        Me.createFileButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.createFileButton.Name = "createFileButton"
+        Me.createFileButton.Size = New System.Drawing.Size(100, 28)
+        Me.createFileButton.TabIndex = 6
+        Me.createFileButton.Text = "Create File"
+        Me.createFileButton.UseVisualStyleBackColor = True
+        '
+        'selectFileLocationButton
+        '
+        Me.selectFileLocationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.selectFileLocationButton.Location = New System.Drawing.Point(592, 135)
+        Me.selectFileLocationButton.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.selectFileLocationButton.Name = "selectFileLocationButton"
+        Me.selectFileLocationButton.Size = New System.Drawing.Size(121, 28)
+        Me.selectFileLocationButton.TabIndex = 5
+        Me.selectFileLocationButton.Text = "Pick Location"
+        Me.selectFileLocationButton.UseVisualStyleBackColor = True
         '
         'Doc_FileName
         '
@@ -156,7 +169,7 @@ Partial Class QuoteGen
         'Doc_DocLocation
         '
         Me.Doc_DocLocation.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Doc_DocLocation.Location = New System.Drawing.Point(312, 136)
+        Me.Doc_DocLocation.Location = New System.Drawing.Point(312, 135)
         Me.Doc_DocLocation.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_DocLocation.Name = "Doc_DocLocation"
         Me.Doc_DocLocation.ReadOnly = True
@@ -167,7 +180,7 @@ Partial Class QuoteGen
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(8, 136)
+        Me.Label3.Location = New System.Drawing.Point(8, 135)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(160, 20)
@@ -218,7 +231,7 @@ Partial Class QuoteGen
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(8, 72)
+        Me.Label5.Location = New System.Drawing.Point(8, 71)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(63, 20)
@@ -239,7 +252,7 @@ Partial Class QuoteGen
         'Doc_DocOwner
         '
         Me.Doc_DocOwner.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Doc_DocOwner.Location = New System.Drawing.Point(312, 72)
+        Me.Doc_DocOwner.Location = New System.Drawing.Point(312, 71)
         Me.Doc_DocOwner.Margin = New System.Windows.Forms.Padding(4)
         Me.Doc_DocOwner.Name = "Doc_DocOwner"
         Me.Doc_DocOwner.Size = New System.Drawing.Size(273, 26)
@@ -301,16 +314,28 @@ Partial Class QuoteGen
         'Proj_DocViewer
         '
         Me.Proj_DocViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Proj_DocViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Proj_DocViewer.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_DocViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_DocViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.Proj_DocViewer.EnableHeadersVisualStyles = False
         Me.Proj_DocViewer.Location = New System.Drawing.Point(312, 191)
         Me.Proj_DocViewer.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocViewer.Name = "Proj_DocViewer"
+        Me.Proj_DocViewer.RowHeadersVisible = False
         Me.Proj_DocViewer.RowHeadersWidth = 51
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.Proj_DocViewer.Size = New System.Drawing.Size(548, 443)
         Me.Proj_DocViewer.TabIndex = 17
         '
@@ -496,21 +521,11 @@ Partial Class QuoteGen
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
-        'selectFileLocationButton
-        '
-        Me.selectFileLocationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.selectFileLocationButton.Location = New System.Drawing.Point(592, 135)
-        Me.selectFileLocationButton.Name = "selectFileLocationButton"
-        Me.selectFileLocationButton.Size = New System.Drawing.Size(121, 28)
-        Me.selectFileLocationButton.TabIndex = 5
-        Me.selectFileLocationButton.Text = "Pick Location"
-        Me.selectFileLocationButton.UseVisualStyleBackColor = True
-        '
         'QuoteGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(935, 841)
+        Me.ClientSize = New System.Drawing.Size(938, 850)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.BackBtn)
         Me.Controls.Add(Me.Button9)
@@ -522,6 +537,7 @@ Partial Class QuoteGen
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.Name = "QuoteGen"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Quote Generator - Page 1"
@@ -575,6 +591,6 @@ Partial Class QuoteGen
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand
     Friend WithEvents Doc_FileName As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents selectFileLocationButton As Button
+    Friend WithEvents createFileButton As Button
 End Class

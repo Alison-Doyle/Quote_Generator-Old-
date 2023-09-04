@@ -42,18 +42,6 @@ Public Class QuoteGenerator2
         populateDocumentSection3()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'ADDING IMAGE
-        Using ofd As OpenFileDialog = New OpenFileDialog() With {.Filter = "png Images|*.png|jpeg Images|*.jpg,*.jpeg"}
-            If ofd.ShowDialog() = DialogResult.OK Then
-                Proj_DiagramPath.Text = ofd.FileName
-            End If
-        End Using
-
-        Dim bmp As New Bitmap(Proj_DiagramPath.Text)
-        Img_Height.Text = bmp.Height.ToString() * 0.75
-        Img_Width.Text = bmp.Width.ToString() * 0.75
-    End Sub
-
     Sub goToMainMenu()
         Dim frm = MainMenu
         frm.Show()
@@ -64,14 +52,14 @@ Public Class QuoteGenerator2
         Dim page1 = QuoteGen
         page1.quoteLocation = quoteLocation
         QuoteGen.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
     Sub goToNextPage()
         Dim page3 = QuoteGenerator3
         page3.quoteLocation = quoteLocation
         QuoteGenerator3.Show()
-        Me.Close()
+        Me.Hide()
     End Sub
 
     Sub populateDocumentSection3()
