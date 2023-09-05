@@ -25,9 +25,9 @@ Partial Class MainMenu
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.openEmployeeManagerButton = New System.Windows.Forms.Button()
         Me.openSettingsButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.openEmployeeManagerButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -67,6 +67,17 @@ Partial Class MainMenu
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         '
+        'openEmployeeManagerButton
+        '
+        Me.openEmployeeManagerButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
+        Me.openEmployeeManagerButton.Location = New System.Drawing.Point(144, 96)
+        Me.openEmployeeManagerButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.openEmployeeManagerButton.Name = "openEmployeeManagerButton"
+        Me.openEmployeeManagerButton.Size = New System.Drawing.Size(264, 44)
+        Me.openEmployeeManagerButton.TabIndex = 1
+        Me.openEmployeeManagerButton.Text = "Employee Manager"
+        Me.openEmployeeManagerButton.UseVisualStyleBackColor = True
+        '
         'openSettingsButton
         '
         Me.openSettingsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
@@ -88,17 +99,6 @@ Partial Class MainMenu
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
-        '
-        'openEmployeeManagerButton
-        '
-        Me.openEmployeeManagerButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
-        Me.openEmployeeManagerButton.Location = New System.Drawing.Point(144, 96)
-        Me.openEmployeeManagerButton.Margin = New System.Windows.Forms.Padding(4)
-        Me.openEmployeeManagerButton.Name = "openEmployeeManagerButton"
-        Me.openEmployeeManagerButton.Size = New System.Drawing.Size(264, 44)
-        Me.openEmployeeManagerButton.TabIndex = 1
-        Me.openEmployeeManagerButton.Text = "Employee Manager"
-        Me.openEmployeeManagerButton.UseVisualStyleBackColor = True
         '
         'MainMenu
         '

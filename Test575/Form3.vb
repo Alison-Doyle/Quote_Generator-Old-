@@ -3,15 +3,18 @@ Imports System.Windows
 Imports Test575.standardProgramFunctions
 
 Public Class QuoteGen
-    Dim LoadDir As String
     Public quoteLocation As String
     Private Sub Button2_Click(sender As Object, e As EventArgs)  'Next Page
         goToPage2()
     End Sub
     Private Sub QuoteGenerator_Load(sender As Object, e As EventArgs) Handles MyBase.Load 'Defining LoadDir/Load Directory
-        LoadDir = Environment.CurrentDirectory & "\"
         Me.AutoScroll = True
     End Sub
+
+    Private Sub QuoteGenerator_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        closeProgram(e, True)
+    End Sub
+
     Private Sub BackBtn_Click_1(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back to MainMenu (Bottom)
         returnToMainMenu()
     End Sub
@@ -66,7 +69,7 @@ Public Class QuoteGen
             excelApp.Sheets("Sheet1").activate()
 
             'Fill in template constants
-            excelApp.Cells.Replace("þ", CompanyName)
+            excelApp.Cells.Replace("þ", companyName)
             excelApp.Cells.Replace("QN", quoteNumber)
 
             'Getting filepath
@@ -78,7 +81,7 @@ Public Class QuoteGen
 
             'Getting filename
             If String.IsNullOrEmpty(enteredFileName) Then
-                fileName = "Quote " & quoteNumber & "(" & CompanyName & ")"
+                fileName = "Quote " & quoteNumber & "(" & companyName & ")"
             Else
                 If enteredFileName.Contains(".xlsx") Then
                     fileName = enteredFileName

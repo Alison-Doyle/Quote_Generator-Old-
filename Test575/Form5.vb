@@ -1,16 +1,10 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports MySql.Data.MySqlClient
 Imports Test575.standardProgramFunctions
 
 Public Class QuoteGen5
-    Dim LoadDir As String
-    Dim MyExcel As New Excel.Application
-    Dim MysqlConn As MySqlConnection
-    Dim COMMAND As MySqlCommand
-    Dim table As New DataTable("Table")
+    Public quoteLocation As String
     Private Sub Form5_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
-        LoadDir = Environment.CurrentDirectory & "\"
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to Main Menu
@@ -18,23 +12,49 @@ Public Class QuoteGen5
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click 'Previous Page
-        QuoteGenerator4.Show()
-        Me.Hide()
+        Dim lastPage = QuoteGenerator4
+        lastPage.Show()
+        Me.Close()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click 'insert training desc
+        insertSection5()
+    End Sub
 
-        MyExcel.Workbooks.Open("C:\Users\Admin\Desktop\" & QuoteGen.Doc_FileName.Text)
-        MyExcel.Sheets("Sheet1").activate()
+    Sub insertSection5()
+        'Simplifying winform names
+        Dim projectTrainingRequirementsandCources As String = Proj_Training.Text
 
-        MyExcel.Range("DX7").Activate()
-        MyExcel.Range("DX7").Value = Proj_Training.Text
+        'Excel Variables
+        Dim excelApp As New Excel.Application
+        Const trainingAndCourcesCell = "DX7"
 
-        MyExcel.ActiveWorkbook.Close(SaveChanges:=True)
-        MyExcel.Quit()
+        Try
+            'Opening Excel and file
+            excelApp.Visible = False
+            excelApp.Workbooks.Open(quoteLocation)
+            excelApp.Sheets("Sheet1").activate()
 
-        Runtime.InteropServices.Marshal.ReleaseComObject(MyExcel.Workbooks)
+            excelApp.Range(trainingAndCourcesCell).Vlaue = projectTrainingRequirementsandCources
 
-        MessageBox.Show("Quote Updated")
+            MessageBox.Show("Section 5 filled in")
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            Try
+                excelApp.ActiveWorkbook.Save()
+            Catch ex As Exception
+            End Try
+
+            'Close Excel Application
+            excelApp.Workbooks.Close()
+            excelApp.Quit()
+
+            'Must clean up twice to ensure everything is disposed of
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+            GC.Collect()
+            GC.WaitForPendingFinalizers()
+        End Try
     End Sub
 End Class

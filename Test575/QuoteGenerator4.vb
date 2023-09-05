@@ -1,15 +1,9 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports MySql.Data.MySqlClient
 Imports Test575.standardProgramFunctions
 
 Public Class QuoteGenerator4
     Public quoteLocation As String
     Public componantsTotal As Double
-    Dim LoadDir As String
-    Dim MyExcel As New Excel.Application
-    Dim MysqlConn As MySqlConnection
-    Dim COMMAND As MySqlCommand
-    Dim table As New DataTable("Table")
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to MainMenu
         returnToMainMenu()
     End Sub
@@ -19,7 +13,6 @@ Public Class QuoteGenerator4
 
     Private Sub QuoteGenerator4_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
         Me.AutoScroll = True
-        LoadDir = Environment.CurrentDirectory & "\"
         Try
             Me.Proj_CostBreakDown.Rows.Add("Cost of Componants", "", QuoteGenerator3.componantsTotal)
         Catch ex As Exception

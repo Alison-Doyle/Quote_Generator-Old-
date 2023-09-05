@@ -163,4 +163,15 @@ Public Class EmployeeManagement
         End Try
     End Sub
 
+    Private Sub Emp_Viewer_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles Emp_Viewer.CellClick
+        'Making sure cell clicked is not a header cell
+        If e.RowIndex >= 0 Then
+            Update_Name.Text = Emp_Viewer.Rows(e.RowIndex).Cells(0).Value
+            Update_Position.Text = Emp_Viewer.Rows(e.RowIndex).Cells(1).Value
+            Update_Wage.Text = Emp_Viewer.Rows(e.RowIndex).Cells(2).Value
+            Update_Notes.Text = Emp_Viewer.Rows(e.RowIndex).Cells(3).Value
+        Else
+            MessageBox.Show("Please select a valid cell")
+        End If
+    End Sub
 End Class

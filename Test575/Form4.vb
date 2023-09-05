@@ -1,16 +1,14 @@
 ﻿
 Imports Excel = Microsoft.Office.Interop.Excel
-Imports MySql.Data.MySqlClient
 Imports Test575.standardProgramFunctions
 
 Public Class QuoteGenerator2
     Public quoteLocation As String
-
-    Dim LoadDir As String
-    Dim table As New DataTable("Table")
     Private Sub QuoteGenerator2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDir = Environment.CurrentDirectory & "\"
         Me.AutoScroll = True
+    End Sub
+    Private Sub QuoteGenerator2_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        closeProgram(e, True)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Previous Page Button
         goToLastPage()

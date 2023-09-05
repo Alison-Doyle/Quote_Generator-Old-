@@ -20,10 +20,6 @@
         Return allCredentialsCorrect
     End Function
 
-    Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles openSettingsButton.Click
         Dim credentialCheckForm = New SignIn()
         credentialCheckForm.pageToOpen = "settings"
@@ -34,5 +30,9 @@
         Dim credentialCheckForm = New SignIn()
         credentialCheckForm.pageToOpen = "employeeManager"
         credentialCheckForm.Show()
+    End Sub
+
+    Private Sub MainMenu_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        standardProgramFunctions.closeProgram(e, True)
     End Sub
 End Class
