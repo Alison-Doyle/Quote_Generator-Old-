@@ -262,6 +262,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RelatedDocumentation.vb" />
+    <Compile Include="Settings.Designer.vb">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.vb">
+      <DependentUpon>SignIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="standardProgramFunctions.vb" />
     <Compile Include="StockViewer.Designer.vb">
       <DependentUpon>StockViewer.vb</DependentUpon>
@@ -303,6 +315,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuoteGenerator4.resx">
       <DependentUpon>QuoteGenerator4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockViewer.resx">
       <DependentUpon>StockViewer.vb</DependentUpon>

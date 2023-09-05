@@ -31,7 +31,7 @@ Public Class QuoteGenerator3
     End Sub
 
     Private Sub QuoteGenerator3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Proj_CompTotal.Text = 0
+        Proj_CompTotal.Text = "€" + componantsTotal.ToString()
         Me.AutoScroll = True
     End Sub
 
@@ -69,6 +69,7 @@ Public Class QuoteGenerator3
     Sub goToNextPage()
         Dim page4 = QuoteGenerator4
         page4.quoteLocation = quoteLocation
+        page4.componantsTotal = componantsTotal
         page4.Show()
         Me.Hide()
     End Sub
@@ -158,7 +159,7 @@ Public Class QuoteGenerator3
 
             'Increasing total componants value
             componantsTotal += totalCost
-            Proj_CompTotal.Text = componantsTotal
+            Proj_CompTotal.Text = "€" + componantsTotal.ToString()
 
         Else
             MessageBox.Show("Please make sure the estimated needed amount and percentage add-on are filled in")

@@ -1,20 +1,8 @@
 ﻿Public Class MainMenu
-    Private Sub Employees_Click(sender As Object, e As EventArgs) Handles Employees.Click 'Login Button
-        Dim allCredentialsCorrect As Boolean = checkCredentials(Username.Text, Password.Text)
-
-        If allCredentialsCorrect = True Then
-            Dim employeeManagement As New EmployeeManagement
-            employeeManagement.Show()
-            Me.Close()
-        Else
-            MessageBox.Show("Credentials Incorrect")
-        End If
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Quote Generator Button
 
         Dim newQuote = New QuoteGen
-            newQuote.Show()
+        newQuote.Show()
         Me.Hide()
     End Sub
 
@@ -34,5 +22,17 @@
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles openSettingsButton.Click
+        Dim credentialCheckForm = New SignIn()
+        credentialCheckForm.pageToOpen = "settings"
+        credentialCheckForm.Show()
+    End Sub
+
+    Private Sub openEmployeeManagerButton_Click(sender As Object, e As EventArgs) Handles openEmployeeManagerButton.Click
+        Dim credentialCheckForm = New SignIn()
+        credentialCheckForm.pageToOpen = "employeeManager"
+        credentialCheckForm.Show()
     End Sub
 End Class
