@@ -107,9 +107,9 @@ Partial Class MainMenu
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(7, 215)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(91, 16)
+        Me.Label2.Size = New System.Drawing.Size(123, 20)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "version 0.1.0.0"
+        Me.Label2.Text = "version 1.0.0.11"
         '
         'MainMenu
         '
