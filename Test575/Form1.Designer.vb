@@ -68,7 +68,6 @@ Partial Class MainMenu
         Me.GroupBox1.Size = New System.Drawing.Size(549, 239)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "s"
         '
         'openEmployeeManagerButton
         '

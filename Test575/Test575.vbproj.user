@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>C:\Users\Admin\Desktop\test\|C:\Users\Admin\Desktop\|publish\</PublishUrlHistory>
-    <InstallUrlHistory />
+    <PublishUrlHistory>C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\published\|C:\Users\Admin\Desktop\test\|C:\Users\Admin\Desktop\|publish\</PublishUrlHistory>
+    <InstallUrlHistory>https://raw.githubusercontent.com/Alison-Doyle/Quote_Generator-Old-/main/published/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
