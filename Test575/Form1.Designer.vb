@@ -28,6 +28,7 @@ Partial Class MainMenu
         Me.openEmployeeManagerButton = New System.Windows.Forms.Button()
         Me.openSettingsButton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -56,6 +57,7 @@ Partial Class MainMenu
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.openEmployeeManagerButton)
         Me.GroupBox1.Controls.Add(Me.openSettingsButton)
         Me.GroupBox1.Controls.Add(Me.Button1)
@@ -66,6 +68,7 @@ Partial Class MainMenu
         Me.GroupBox1.Size = New System.Drawing.Size(549, 239)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "s"
         '
         'openEmployeeManagerButton
         '
@@ -100,6 +103,15 @@ Partial Class MainMenu
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(7, 215)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(91, 16)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "version 0.1.0.0"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -114,6 +126,7 @@ Partial Class MainMenu
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -126,4 +139,5 @@ Partial Class MainMenu
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents openSettingsButton As Button
     Friend WithEvents openEmployeeManagerButton As Button
+    Friend WithEvents Label2 As Label
 End Class

@@ -206,4 +206,8 @@ Public Class QuoteGen
     Private Sub createFileButton_Click(sender As Object, e As EventArgs) Handles createFileButton.Click
         createExcelFile()
     End Sub
+
+    Private Sub Proj_DocDesc_TextChanged(sender As Object, e As EventArgs) Handles Proj_DocDesc.TextChanged
+
+    End Sub
 End Class

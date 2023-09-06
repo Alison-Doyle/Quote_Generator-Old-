@@ -18,7 +18,7 @@ Public Class standardProgramFunctions
             Dim form = My.Application.OpenForms(i)
             For j As Integer = 0 To formNames.Count - 1 Step +1
                 If form.Name.ToString() = formNames(j) Then
-                    form.Close()
+                    form.Hide()
                 End If
             Next
         Next
@@ -27,8 +27,6 @@ Public Class standardProgramFunctions
     Public Shared Sub closeProgram(e As FormClosingEventArgs, applicationClosing As Boolean)
         Const closingDialogBoxCaption As String = "Closing Application"
         Const closingDialogBoxMessage As String = "Are you sure you want to close the application? All unsaved data will be lost"
-
-        MessageBox.Show(e.CloseReason)
 
         'If only the quote generator section is getting closed, there is no need to end the entire application
         If applicationClosing = True Then

@@ -36,5 +36,7 @@ Public Class Settings
         If inventoryTableNameTextbox.Text <> My.Settings.InventoryTableName Then
             My.Settings.InventoryTableName = inventoryTableNameTextbox.Text
         End If
+
+        MessageBox.Show("Settings Updated")
     End Sub
 End Class

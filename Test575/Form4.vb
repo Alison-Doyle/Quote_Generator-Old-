@@ -122,4 +122,16 @@ Public Class QuoteGenerator2
             GC.WaitForPendingFinalizers()
         End Try
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        getImagePathViaFileExplorer()
+    End Sub
+
+    Sub getImagePathViaFileExplorer()
+        Using ofd As OpenFileDialog = New OpenFileDialog() With {.Filter = "png Images|*.png|jpeg Images|*.jpg,*.jpeg"}
+            If ofd.ShowDialog() = DialogResult.OK Then
+                Proj_DiagramPath.Text = ofd.FileName
+            End If
+        End Using
+    End Sub
 End Class

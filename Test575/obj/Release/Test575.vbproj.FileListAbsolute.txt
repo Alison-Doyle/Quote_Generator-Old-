@@ -1,10 +1,4 @@
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Resources\Quote_Template(ReadOnly).xlsx
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.exe.config
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.exe.manifest
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.application
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.exe
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.pdb
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator2.xml
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\BouncyCastle.Crypto.dll
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\DocumentFormat.OpenXml.dll
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\EPPlus.dll
@@ -57,9 +51,17 @@ C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\T
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.StockViewer.resources
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.vbproj.GenerateResource.cache
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.vbproj.CoreCompileInputs.cache
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator2.exe.manifest
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator2.application
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.vbproj.CopyComplete
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator2.exe
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator2.xml
-C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator2.pdb
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.exe.config
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.exe.manifest
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.application
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.exe
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.pdb
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Quote Generator.xml
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.Settings.resources
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Test575.SignIn.resources
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.exe.manifest
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.application
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.exe
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.xml
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.pdb

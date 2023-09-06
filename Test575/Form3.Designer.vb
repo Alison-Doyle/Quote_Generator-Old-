@@ -22,9 +22,9 @@ Partial Class QuoteGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.createFileButton = New System.Windows.Forms.Button()
         Me.selectFileLocationButton = New System.Windows.Forms.Button()
@@ -303,7 +303,7 @@ Partial Class QuoteGen
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(12, 606)
+        Me.Button6.Location = New System.Drawing.Point(653, 363)
         Me.Button6.Margin = New System.Windows.Forms.Padding(4)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(207, 28)
@@ -314,29 +314,29 @@ Partial Class QuoteGen
         'Proj_DocViewer
         '
         Me.Proj_DocViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
         Me.Proj_DocViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Proj_DocViewer.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_DocViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_DocViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Proj_DocViewer.DefaultCellStyle = DataGridViewCellStyle8
         Me.Proj_DocViewer.EnableHeadersVisualStyles = False
-        Me.Proj_DocViewer.Location = New System.Drawing.Point(312, 191)
+        Me.Proj_DocViewer.Location = New System.Drawing.Point(12, 399)
         Me.Proj_DocViewer.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocViewer.Name = "Proj_DocViewer"
         Me.Proj_DocViewer.RowHeadersVisible = False
         Me.Proj_DocViewer.RowHeadersWidth = 51
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle3
-        Me.Proj_DocViewer.Size = New System.Drawing.Size(548, 443)
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle9
+        Me.Proj_DocViewer.Size = New System.Drawing.Size(848, 235)
         Me.Proj_DocViewer.TabIndex = 17
         '
         'Column1
@@ -358,7 +358,7 @@ Partial Class QuoteGen
         Me.Proj_DocDesc.Margin = New System.Windows.Forms.Padding(4)
         Me.Proj_DocDesc.Multiline = True
         Me.Proj_DocDesc.Name = "Proj_DocDesc"
-        Me.Proj_DocDesc.Size = New System.Drawing.Size(291, 352)
+        Me.Proj_DocDesc.Size = New System.Drawing.Size(633, 146)
         Me.Proj_DocDesc.TabIndex = 4
         '
         'Label10
@@ -525,7 +525,7 @@ Partial Class QuoteGen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(938, 850)
+        Me.ClientSize = New System.Drawing.Size(938, 848)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.BackBtn)
         Me.Controls.Add(Me.Button9)
