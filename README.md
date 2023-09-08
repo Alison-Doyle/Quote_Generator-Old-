@@ -9,4 +9,4 @@ This application was made for Sleater & Co. for the purposes of streamlining the
    <b>Note:</b> Your computer may stop you saying it's an unreconigsed app. To get around this, click "More info" and an option saying "Run Anyway" should appear. Click this option
 4. When application installer appears, click "Install". Give it a minute to download the necessary files. Once finished, the quote generator should run
 ## ⚖️ Licensing
-All rights are reserved by Sleater & Co. No part of this application or program is allowed to be modified or distributed without explicit permission.
+All rights are reserved by Sleater & Co. No part of this application or repository is allowed to be modified or distributed without explicit permission.
