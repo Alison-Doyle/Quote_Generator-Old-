@@ -149,3 +149,6 @@ C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Quo
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Quote Generator.pdb
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Test575.Settings.resources
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Test575.SignIn.resources
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Resources\presets.json

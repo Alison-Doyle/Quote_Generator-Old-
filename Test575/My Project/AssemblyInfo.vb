@@ -10,10 +10,10 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Quote Generator")>
-<Assembly: AssemblyDescription("Programme to create a quote for a company")>
+<Assembly: AssemblyDescription("Programme to create a quote for a Sleater & Co.")>
 <Assembly: AssemblyCompany("Sleater & Co.")>
-<Assembly: AssemblyProduct("Test575")>
-<Assembly: AssemblyCopyright("Copyright ©  2021")>
+<Assembly: AssemblyProduct("Quote Generator")>
+<Assembly: AssemblyCopyright("Copyright ©  2023")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

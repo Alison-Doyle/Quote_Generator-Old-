@@ -1,6 +1,7 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Windows
 Imports Test575.standardProgramFunctions
+Imports Google.Protobuf.Reflection
 
 Public Class QuoteGen
     Public quoteLocation As String
@@ -63,6 +64,18 @@ Public Class QuoteGen
         Dim excelApp As New Excel.Application
 
         Try
+            'Validate file/compnay name=
+            Dim fileNameIsValid As Boolean
+            If String.IsNullOrEmpty(enteredFileName) Then
+                fileNameIsValid = validateName(companyName)
+            Else
+                fileNameIsValid = validateName(enteredFileName)
+            End If
+
+            If fileNameIsValid = False Then
+                Throw New customExceptions
+            End If
+
             'Open template
             excelApp.Visible = False
             excelApp.Workbooks.Open(quoteTemplatePath)
@@ -97,6 +110,8 @@ Public Class QuoteGen
 
             quoteLocation = quoteFilePath & "\" & fileName
             MessageBox.Show("Quote document saved at: " & quoteFilePath & "\" & fileName)
+        Catch formatEx As customExceptions
+            formatEx.incorrectFilenameFormatException()
         Catch ex As Exception
             MessageBox.Show("Error: " & ex.Message)
         Finally
@@ -210,4 +225,25 @@ Public Class QuoteGen
     Private Sub Proj_DocDesc_TextChanged(sender As Object, e As EventArgs) Handles Proj_DocDesc.TextChanged
 
     End Sub
+
+    Private Sub Doc_CompanyName_TextChanged(sender As Object, e As EventArgs) Handles Doc_CompanyName.TextChanged
+
+    End Sub
+
+    Function validateName(nameToCheck As String)
+        Dim forbiddenCharacters As Char() = {
+                ".",
+                "_",
+                "*"
+            }
+        Dim nameValid As Boolean = True
+
+        For i As Integer = 0 To forbiddenCharacters.Length - 1 Step +1
+            If nameToCheck.Contains(forbiddenCharacters(i)) Or String.IsNullOrWhiteSpace(nameToCheck) Then
+                nameValid = False
+            End If
+        Next
+
+        Return nameValid
+    End Function
 End Class

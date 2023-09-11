@@ -69,7 +69,7 @@ Public Class QuoteGenerator3
     Sub goToNextPage()
         Dim page4 = QuoteGenerator4
         page4.quoteLocation = quoteLocation
-        page4.componantsTotal = componantsTotal
+        page4.componentsTotal = Proj_CompTotal.Text.Replace("€", "")
         page4.Show()
         Me.Hide()
     End Sub

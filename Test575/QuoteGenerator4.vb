@@ -3,7 +3,8 @@ Imports Test575.standardProgramFunctions
 
 Public Class QuoteGenerator4
     Public quoteLocation As String
-    Public componantsTotal As Double
+    Public componentsTotal As Double
+    Dim i As Integer = 0
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to MainMenu
         returnToMainMenu()
     End Sub
@@ -11,13 +12,12 @@ Public Class QuoteGenerator4
         goToLastPage()
     End Sub
 
-    Private Sub QuoteGenerator4_Load(sender As Object, e As EventArgs) Handles MyBase.Shown
+    Private Sub QuoteGenerator4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
-        Try
-            Me.Proj_CostBreakDown.Rows.Add("Cost of Componants", "", QuoteGenerator3.componantsTotal)
-        Catch ex As Exception
-            MessageBox.Show("Error")
-        End Try
+    End Sub
+
+    Private Sub QuoteGenerator4_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        fillInComponentsTotal()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -38,14 +38,6 @@ Public Class QuoteGenerator4
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click   'OPENS EMPLOYEE CALCULATOR
         EmployeeCalculator.Show()
-    End Sub
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click   'ADD COST OF COMPONANTS TO BREAKDOWN
-        Try
-            Me.Proj_CostBreakDown.Rows.Add("Cost of Componants", "", Proj_CompTotal.Text)
-
-        Catch ex As Exception
-            MessageBox.Show("Error")
-        End Try
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click   'OPENS EXPENCES CALCULATOR
@@ -73,6 +65,28 @@ Public Class QuoteGenerator4
         Me.Hide()
     End Sub
 
+    Sub fillInComponentsTotal()
+        Try
+            Dim componentRowHeader As String = "Cost of Components"
+            Dim componentsIndex = Nothing
+
+            For i As Integer = 0 To Proj_CostBreakDown.Rows.Count - 1 Step +1
+                If Proj_CostBreakDown.Rows(i).Cells(0).Value.ToString() = componentRowHeader Then
+                    componentsIndex = i
+                End If
+            Next
+
+            Dim x As Integer
+            If Integer.TryParse(componentsIndex, x) Then
+                Proj_CostBreakDown.Rows(componentsIndex).Cells(1).Value = componentsTotal
+            Else
+                Proj_CostBreakDown.Rows.Add(componentRowHeader, componentsTotal)
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error")
+        End Try
+    End Sub
+
     Sub populateSection5()
         'Excel Variables
         Dim excelApp As New Excel.Application
@@ -88,7 +102,7 @@ Public Class QuoteGenerator4
             excelApp.Workbooks.Open(quoteLocation)
             excelApp.Sheets("Sheet1").activate()
 
-            'Add Projects Schedual Info
+            'Add Projects Schedule Info
             For i As Integer = 0 To Proj_Activate.Rows.Count - 1 Step +1
                 Dim currentRow = 8 + i
                 excelApp.Range(projectsSchedualWeekColumn + currentRow.ToString()).Value = Proj_Activate.Rows(i).Cells(0).Value.ToString()
@@ -99,8 +113,7 @@ Public Class QuoteGenerator4
             For i As Integer = 0 To Proj_CostBreakDown.Rows.Count - 1 Step +1
                 Dim currentRow = 8 + i
                 excelApp.Range(costBreakdownDescriptionColumn + currentRow.ToString()).Value = Proj_CostBreakDown.Rows(i).Cells(0).Value.ToString()
-                excelApp.Range(costBreakdownResourcesColumn + currentRow.ToString()).Value = Proj_CostBreakDown.Rows(i).Cells(1).Value.ToString()
-                excelApp.Range(costBreakdownCostColumn + currentRow.ToString()).Value = Proj_CostBreakDown.Rows(i).Cells(2).Value.ToString()
+                excelApp.Range(costBreakdownCostColumn + currentRow.ToString()).Value = Proj_CostBreakDown.Rows(i).Cells(1).Value.ToString()
             Next
         Catch ex As Exception
             MessageBox.Show("Error" + ex.Message)
@@ -120,5 +133,9 @@ Public Class QuoteGenerator4
             GC.Collect()
             GC.WaitForPendingFinalizers()
         End Try
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class
