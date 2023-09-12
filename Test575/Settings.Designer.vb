@@ -39,6 +39,10 @@ Partial Class Settings
         Me.userNameTextbox = New System.Windows.Forms.TextBox()
         Me.userNameLabel = New System.Windows.Forms.Label()
         Me.presets = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.componentMarkUp = New System.Windows.Forms.TextBox()
+        Me.componentQuantity = New System.Windows.Forms.TextBox()
         Me.openComponentListTextbox = New System.Windows.Forms.Button()
         Me.addComponentButton = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -48,10 +52,6 @@ Partial Class Settings
         Me.addPresetButton = New System.Windows.Forms.Button()
         Me.listOfPresets = New System.Windows.Forms.ListBox()
         Me.presetDetailsView = New System.Windows.Forms.DataGridView()
-        Me.componentQuantity = New System.Windows.Forms.TextBox()
-        Me.componentMarkUp = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.description = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -253,17 +253,51 @@ Partial Class Settings
         Me.presets.Controls.Add(Me.listOfPresets)
         Me.presets.Controls.Add(Me.presetDetailsView)
         Me.presets.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.presets.Location = New System.Drawing.Point(9, 276)
+        Me.presets.Location = New System.Drawing.Point(9, 245)
         Me.presets.Name = "presets"
-        Me.presets.Size = New System.Drawing.Size(630, 338)
+        Me.presets.Size = New System.Drawing.Size(630, 369)
         Me.presets.TabIndex = 3
         Me.presets.TabStop = False
         Me.presets.Text = "Presets"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(483, 121)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(59, 16)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Mark-Up"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(485, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(55, 16)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Quantity"
+        '
+        'componentMarkUp
+        '
+        Me.componentMarkUp.Location = New System.Drawing.Point(486, 140)
+        Me.componentMarkUp.Name = "componentMarkUp"
+        Me.componentMarkUp.Size = New System.Drawing.Size(138, 26)
+        Me.componentMarkUp.TabIndex = 11
+        '
+        'componentQuantity
+        '
+        Me.componentQuantity.Location = New System.Drawing.Point(486, 92)
+        Me.componentQuantity.Name = "componentQuantity"
+        Me.componentQuantity.Size = New System.Drawing.Size(138, 26)
+        Me.componentQuantity.TabIndex = 10
+        '
         'openComponentListTextbox
         '
         Me.openComponentListTextbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.openComponentListTextbox.Location = New System.Drawing.Point(486, 309)
+        Me.openComponentListTextbox.Location = New System.Drawing.Point(486, 340)
         Me.openComponentListTextbox.Name = "openComponentListTextbox"
         Me.openComponentListTextbox.Size = New System.Drawing.Size(138, 23)
         Me.openComponentListTextbox.TabIndex = 9
@@ -300,7 +334,7 @@ Partial Class Settings
         'deletePresetButton
         '
         Me.deletePresetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.deletePresetButton.Location = New System.Drawing.Point(7, 309)
+        Me.deletePresetButton.Location = New System.Drawing.Point(7, 340)
         Me.deletePresetButton.Name = "deletePresetButton"
         Me.deletePresetButton.Size = New System.Drawing.Size(104, 23)
         Me.deletePresetButton.TabIndex = 4
@@ -310,7 +344,7 @@ Partial Class Settings
         'updatePresetButton
         '
         Me.updatePresetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.updatePresetButton.Location = New System.Drawing.Point(7, 280)
+        Me.updatePresetButton.Location = New System.Drawing.Point(7, 311)
         Me.updatePresetButton.Name = "updatePresetButton"
         Me.updatePresetButton.Size = New System.Drawing.Size(104, 23)
         Me.updatePresetButton.TabIndex = 3
@@ -320,7 +354,7 @@ Partial Class Settings
         'addPresetButton
         '
         Me.addPresetButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.addPresetButton.Location = New System.Drawing.Point(7, 251)
+        Me.addPresetButton.Location = New System.Drawing.Point(7, 282)
         Me.addPresetButton.Name = "addPresetButton"
         Me.addPresetButton.Size = New System.Drawing.Size(104, 23)
         Me.addPresetButton.TabIndex = 2
@@ -334,7 +368,7 @@ Partial Class Settings
         Me.listOfPresets.ItemHeight = 16
         Me.listOfPresets.Location = New System.Drawing.Point(7, 25)
         Me.listOfPresets.Name = "listOfPresets"
-        Me.listOfPresets.Size = New System.Drawing.Size(104, 212)
+        Me.listOfPresets.Size = New System.Drawing.Size(104, 244)
         Me.listOfPresets.TabIndex = 1
         '
         'presetDetailsView
@@ -344,42 +378,8 @@ Partial Class Settings
         Me.presetDetailsView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.code, Me.description, Me.quantity, Me.markUp, Me.totalComponentCost})
         Me.presetDetailsView.Location = New System.Drawing.Point(117, 25)
         Me.presetDetailsView.Name = "presetDetailsView"
-        Me.presetDetailsView.Size = New System.Drawing.Size(360, 307)
+        Me.presetDetailsView.Size = New System.Drawing.Size(360, 338)
         Me.presetDetailsView.TabIndex = 0
-        '
-        'componentQuantity
-        '
-        Me.componentQuantity.Location = New System.Drawing.Point(486, 92)
-        Me.componentQuantity.Name = "componentQuantity"
-        Me.componentQuantity.Size = New System.Drawing.Size(138, 26)
-        Me.componentQuantity.TabIndex = 10
-        '
-        'componentMarkUp
-        '
-        Me.componentMarkUp.Location = New System.Drawing.Point(486, 140)
-        Me.componentMarkUp.Name = "componentMarkUp"
-        Me.componentMarkUp.Size = New System.Drawing.Size(138, 26)
-        Me.componentMarkUp.TabIndex = 11
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(485, 73)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 16)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Quantity"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(483, 121)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(59, 16)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "Mark-Up"
         '
         'code
         '

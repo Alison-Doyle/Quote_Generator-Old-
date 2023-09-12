@@ -1,11 +1,10 @@
 ﻿Imports System.IO
-Imports System.Reflection.Emit
-Imports DocumentFormat.OpenXml.Drawing
 Imports MySql.Data.MySqlClient
 Imports Newtonsoft.Json
-Imports Newtonsoft.Json.Linq
 
 Public Class Settings
+    Private arePresetChangesSaved As Boolean = False
+
     Public availablePresets As ComponentListPreset()
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -76,7 +75,7 @@ Public Class Settings
     End Sub
 
     Sub populatePresetsListView()
-        For i As Integer = 0 To availablePresets.Length - 1 Step +1
+        For i As Int32 = 0 To availablePresets.Length - 1 Step +1
             listOfPresets.Items.Add(availablePresets(i).presetName)
         Next
     End Sub
@@ -84,53 +83,109 @@ Public Class Settings
     Sub populatePresetDetailsView(presetSelected As String)
         presetDetailsView.Rows.Clear()
 
-        For i As Integer = 0 To availablePresets.Length - 1 Step +1
+        For i As Int32 = 0 To availablePresets.Length - 1 Step +1
             If availablePresets(i).presetName = presetSelected Then
-                For j As Integer = 0 To availablePresets(i).components.Count - 1 Step +1
+                For j As Int32 = 0 To availablePresets(i).components.Count - 1 Step +1
                     Dim componentCode As String = availablePresets(i).components(j).code
-                    Dim quantity As Integer = availablePresets(i).components(j).quantity
+                    Dim quantity As Int32 = availablePresets(i).components(j).quantity
                     Dim markUp As String = availablePresets(i).components(j).markUp.ToString() + "%"
 
-                    Dim description As String
+                    Dim descAndCost As (String, Double) = findItemInDatabase(componentCode)
 
-                    presetDetailsView.Rows.Add(componentCode, description, quantity, markUp, "")
+                    Dim description As String = descAndCost.Item1
+                    Dim cost As Double = descAndCost.Item2
+
+                    Console.WriteLine(componentCode & ": " & cost)
+
+                    Dim totalCost As Double = calculateCostOfComponent(cost, quantity, availablePresets(i).components(j).markUp)
+
+                    presetDetailsView.Rows.Add(componentCode, description, quantity, markUp, totalCost)
                 Next
             End If
         Next
     End Sub
 
-    Function fetchComponentData(componentCode As String)
-        Dim componentData As Tuple(Of String, Double)
-        Dim description As String = ""
-        Dim cost As Double = 0
-        Dim sqlConnection As MySqlConnection
+    Sub addNewComponent()
+        Dim quantity = componentQuantity.Text
+        Dim percentageAddOn = componentMarkUp.Text
 
-        sqlConnection = New MySqlConnection
+        If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False Then
+            Dim totalCost As Double
+
+            'Simplifying variable names
+            Dim description As String = ""
+            Dim cost As String = ""
+
+            If String.IsNullOrWhiteSpace(componentCode.Text) = False Then
+                'Fetching missing data from database
+                Dim databaseInformation As (String, Double)
+                databaseInformation = findItemInDatabase(componentCode.Text)
+                description = databaseInformation.Item1
+                cost = databaseInformation.Item2
+            End If
+
+            'Calculating cost of componant
+            totalCost = calculateCostOfComponent(cost, quantity, percentageAddOn)
+
+            'Checking if componant already exists in table and adding componant appropriatly depending on if it is or not
+            Dim componantExists As Boolean = False
+            Dim componantIndex As Int32
+            For i As Int32 = 0 To presetDetailsView.Rows.Count - 1 Step +1
+                If presetDetailsView.Rows(i).Cells(0).Value.ToString() = componentCode.Text.ToUpper() Then
+                    componantExists = True
+                    componantIndex = i
+                End If
+            Next
+
+            If componantExists = True Then
+                presetDetailsView.Rows(componantIndex).Cells(2).Value = quantity + Convert.ToInt32(presetDetailsView.Rows(componantIndex).Cells(2).Value)
+                presetDetailsView.Rows(componantIndex).Cells(4).Value = totalCost + Convert.ToDouble(presetDetailsView.Rows(componantIndex).Cells(4).Value)
+            Else
+                Dim markupTaxt = percentageAddOn.ToString() & "%"
+                presetDetailsView.Rows.Add((componentCode.Text).ToUpper(), description, quantity, markupTaxt, totalCost)
+            End If
+        Else
+            MessageBox.Show("Please make sure the estimated needed amount and percentage add-on are filled in")
+        End If
+    End Sub
+
+    Function calculateCostOfComponent(unitCost As Double, quantity As Int32, markUp As Double)
+        Return (unitCost * quantity) * ((100 + markUp) / 100)
+    End Function
+
+    Function findItemInDatabase(componentCode As String)
+        Dim databaseSearchResults As (String, Double) = ("", 0.00)
+
+        Dim sqlConnection As New MySqlConnection
         sqlConnection.ConnectionString = "Server=Localhost;Userid=root;password=" & My.Settings.DatabasePassword & ";database=" & My.Settings.DatabaseName
+
+        Dim reader As MySqlDataReader
 
         Try
             sqlConnection.Open()
 
-            Dim descriptionCommand As New MySqlCommand("SELECT `Description` FROM `" & My.Settings.InventoryTableName & "` WHERE ID = '" & componentCode & "';", sqlConnection)
-            Dim costCommand As New MySqlCommand("SELECT `Cost` FROM `" & My.Settings.InventoryTableName & "` WHERE ID = '" & componentCode & "';", sqlConnection)
-            Dim reader As MySqlDataReader
-            Dim costReader As MySqlDataReader
+            Dim query As String = "Select * From " & My.Settings.InventoryTableName & " where (`ID` = '" & componentCode & "')"
+            Dim command As New MySqlCommand(query, sqlConnection)
+            reader = command.ExecuteReader
 
-            reader = descriptionCommand.ExecuteReader
-            If reader.Read Then
-                description = reader.GetString("Description")
-            End If
+            While reader.Read
+                databaseSearchResults.Item1 = reader.GetString("Description")
+                databaseSearchResults.Item2 = reader.GetDouble("Cost")
+            End While
+
+            Console.WriteLine(databaseSearchResults.Item2)
+
         Catch ex As Exception
-            MessageBox.Show(ex, "Error")
+            MessageBox.Show("Error: " & ex.Message)
         Finally
             sqlConnection.Close()
             sqlConnection.Dispose()
         End Try
 
-        Return description
+        Return databaseSearchResults
     End Function
 
-    Sub addNewComponent()
-
+    Private Sub addComponentButton_Click(sender As Object, e As EventArgs) Handles addComponentButton.Click
+        addNewComponent()
     End Sub
 End Class
