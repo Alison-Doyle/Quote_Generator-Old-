@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCompany("Sleater & Co.")>
 <Assembly: AssemblyProduct("Quote Generator")>
 <Assembly: AssemblyCopyright("Copyright ©  2023")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTrademark("Sleater & Co.")>
 
 <Assembly: ComVisible(False)>
 

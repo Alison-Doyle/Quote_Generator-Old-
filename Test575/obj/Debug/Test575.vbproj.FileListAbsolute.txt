@@ -152,3 +152,4 @@ C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Tes
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Newtonsoft.Json.dll
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Newtonsoft.Json.xml
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Debug\Resources\presets.json
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Debug\Quote Generator.TrustInfo.xml

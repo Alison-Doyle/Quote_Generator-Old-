@@ -1,8 +1,11 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports Microsoft.Office.Interop
 Imports Test575.standardProgramFunctions
+Imports Newtonsoft.Json
+Imports System.IO
 
 Public Class QuoteGenerator3
+    Public presetsData As List(Of ComponentListPreset)
     Public componantsTotal As Double = 0
     Public quoteLocation As String
     Dim MysqlConn As MySqlConnection
@@ -17,8 +20,8 @@ Public Class QuoteGenerator3
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         'Getting Componant Information
-        Dim componantInformation As (String, String, Long)
-        componantInformation = findItemInDatabase()
+        Dim componantInformation As (String, String, Double)
+        componantInformation = findItemInDatabase(Proj_CompID.Text)
 
         'Filling in textboxes
         Proj_CompSupply.Text = componantInformation.Item1
@@ -26,11 +29,17 @@ Public Class QuoteGenerator3
         Proj_CompCost.Text = componantInformation.Item3
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'cost of componants + percentage add on calculator and adding to dgv
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click 'cost of component + percentage add on calculator and adding to dgv
         addItemToProposedHardwareTable()
     End Sub
 
     Private Sub QuoteGenerator3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Populate preset dropdown
+        JsonToPresetList()
+        For i As Integer = 0 To presetsData.Count - 1 Step +1
+            Presets.Items.Add(presetsData(i).presetName)
+        Next
+
         Proj_CompTotal.Text = "€" + componantsTotal.ToString()
         Me.AutoScroll = True
     End Sub
@@ -59,6 +68,10 @@ Public Class QuoteGenerator3
         populateDocumentSection4()
     End Sub
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        FillDatagridViewWithPresetData()
+    End Sub
+
     Sub goToLastPage()
         Dim page2 = QuoteGenerator2
         page2.quoteLocation = quoteLocation
@@ -74,11 +87,22 @@ Public Class QuoteGenerator3
         Me.Hide()
     End Sub
 
-    Function findItemInDatabase()
-        Dim databaseSearchResults As (String, String, Long) = ("", "", 0.00)
+    Sub JsonToPresetList()
+        Dim presetFileLocation As String = "../../Resources/presets.json"
+        Dim presetArray As ComponentListPreset()
+
+        If File.Exists(presetFileLocation) Then
+            Dim presetJsonData As String = File.ReadAllText(presetFileLocation)
+            presetArray = JsonConvert.DeserializeObject(Of ComponentListPreset())(presetJsonData)
+            presetsData = presetArray.ToList()
+        End If
+    End Sub
+
+    Function findItemInDatabase(componentCode)
+        Dim databaseSearchResults As (String, String, Double) = ("", "", 0.00)
 
         'Simplifying variable names
-        Dim componentId = Proj_CompID.Text
+        Dim componentId = componentCode
 
         'Connection Variables
         MysqlConn = New MySqlConnection
@@ -120,7 +144,7 @@ Public Class QuoteGenerator3
         Dim quantity = Proj_CompTakeOut.Text
         Dim percentageAddOn = Proj_CompPrecentage.Text
 
-        If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False Then
+        If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False And String.IsNullOrEmpty(Proj_CompID.Text) = False Then
             Dim totalCost As Decimal
 
             'Simplifying variable names
@@ -130,17 +154,18 @@ Public Class QuoteGenerator3
 
             If String.IsNullOrWhiteSpace(supplier) Or String.IsNullOrWhiteSpace(description) Or String.IsNullOrWhiteSpace(cost) Then
                 'Fetching missing data from database
-                Dim databaseInformation As (String, String, Long)
-                databaseInformation = findItemInDatabase()
+                Dim databaseInformation As (String, String, Double)
+                Dim componentCode As String = Proj_CompID.Text
+                databaseInformation = findItemInDatabase(componentCode)
                 supplier = databaseInformation.Item1
                 description = databaseInformation.Item2
                 cost = databaseInformation.Item3
             End If
 
-            'Calculating cost of componant
-            totalCost = (cost * quantity) + (percentageAddOn * (cost * quantity))
+            'Calculating cost of component
+            totalCost = (cost * quantity) * ((100 + percentageAddOn) / 100)
 
-            'Checking if componant already exists in table and adding componant appropriatly depending on if it is or not
+            'Checking if component already exists in table and adding component appropriately depending on if it is or not
             Dim componantExists As Boolean = False
             Dim componantIndex As Integer
             For i As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
@@ -162,7 +187,7 @@ Public Class QuoteGenerator3
             Proj_CompTotal.Text = "€" + componantsTotal.ToString()
 
         Else
-            MessageBox.Show("Please make sure the estimated needed amount and percentage add-on are filled in")
+            MessageBox.Show("Please make sure all necessary boxes are filled in before adding a component")
         End If
     End Sub
 
@@ -214,5 +239,72 @@ Public Class QuoteGenerator3
             GC.Collect()
             GC.WaitForPendingFinalizers()
         End Try
+    End Sub
+
+    Sub FillDatagridViewWithPresetData()
+        Dim presetName As String = Presets.Text
+        Dim presetExists As Boolean = False
+        Dim presetIndex As Integer
+
+        For i As Integer = 0 To presetsData.Count - 1 Step +1
+            If presetsData(i).presetName = presetName Then
+                presetExists = True
+                presetIndex = i
+            End If
+        Next
+
+        If presetExists = True Then
+            'Reset table/remove any existing stuff
+            For i As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
+                componantsTotal -= Proj_CompViewer.Rows(i).Cells(3).Value
+            Next
+            Proj_CompViewer.Rows.Clear()
+
+            For i As Integer = 0 To presetsData(presetIndex).components.Count - 1 Step +1
+                'Fill in component missing data
+                Dim databaseSearchResults As (String, String, Double)
+                Dim componentCode As String = presetsData(presetIndex).components(i).code
+                Dim supplier As String
+                Dim description As String
+                Dim costPerUnit As Double
+
+                databaseSearchResults = findItemInDatabase(componentCode)
+
+                supplier = databaseSearchResults.Item1
+                description = databaseSearchResults.Item2
+                costPerUnit = databaseSearchResults.Item3
+
+                'Calculate total cost of component type
+                Dim quantity = presetsData(presetIndex).components(i).quantity
+                Dim markUp = presetsData(presetIndex).components(i).markUp
+
+                Dim totalCost = (costPerUnit * quantity) * ((100 + markUp) / 100)
+
+                'Adding line to Data Grid View
+                Dim componentExists As Boolean = False
+                Dim componentIndex As Integer
+                For j As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
+                    If Proj_CompViewer.Rows(j).Cells(1).Value.ToString() = description Then
+                        componentExists = True
+                        componentIndex = j
+                    End If
+                Next
+
+                If componentExists = True Then
+                    Proj_CompViewer.Rows(componentIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componentIndex).Cells(2).Value)
+                    Proj_CompViewer.Rows(componentIndex).Cells(3).Value = totalCost + Convert.ToDouble(Proj_CompViewer.Rows(componentIndex).Cells(3).Value)
+                Else
+                    Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost)
+                End If
+
+                'Updating componentns total
+                componantsTotal += totalCost
+                Proj_CompTotal.Text = "€" + componantsTotal.ToString()
+            Next
+        End If
+    End Sub
+
+    Private Sub Proj_CompViewer_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Proj_CompViewer.CellContentClick
+
     End Sub
 End Class

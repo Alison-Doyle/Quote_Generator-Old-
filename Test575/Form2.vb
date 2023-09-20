@@ -32,18 +32,16 @@ Public Class EmployeeManagement
         deleteEmployee(Update_Name.Text)
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Refresh dataviewer w/ employee data
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Refresh data viewer w/ employee data
         populateEmployeeViewer()
-    End Sub
-
-    Private Sub BackBtn_Click(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back Button
-        Dim frm = MainMenu
-        frm.Show()
-        Me.Close()
     End Sub
 
     Private Sub EmployeeManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         populateEmployeeViewer()
+    End Sub
+
+    Private Sub EmployeeManagement_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
+        MainMenu.BringToFront()
     End Sub
 
     Sub populateEmployeeViewer()
@@ -173,5 +171,9 @@ Public Class EmployeeManagement
         Else
             MessageBox.Show("Please select a valid cell")
         End If
+    End Sub
+
+    Private Sub Emp_Viewer_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Emp_Viewer.CellContentClick
+
     End Sub
 End Class

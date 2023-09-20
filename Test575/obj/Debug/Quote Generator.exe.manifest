@@ -4,13 +4,13 @@
   <description asmv2:iconFile="quote_generator_icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Quote Generator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Quote Generator" version="1.0.0.0" publicKeyToken="5A89E5AAE17434D3" language="neutral" processorArchitecture="msil" />
     <commandLine file="Quote Generator.exe" parameters="" />
   </entryPoint>
   <trustInfo>
     <security>
       <applicationRequestMinimum>
-        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
         <defaultAssemblyRequest permissionSetReference="Custom" />
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
@@ -175,14 +175,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="170456">
-      <assemblyIdentity name="Quote Generator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="188376">
+      <assemblyIdentity name="Quote Generator" version="1.0.0.0" publicKeyToken="5A89E5AAE17434D3" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mNXe3PCh4HjjjehyxeRK6WU5YTUWHUi5aGSDMR2IvXw=</dsig:DigestValue>
+        <dsig:DigestValue>OcK8CAPq3klEj9PzkjTSTf7Zpcqk1GvyBArVkfyqErs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -324,13 +324,13 @@
       <dsig:DigestValue>oD2czsyeiyDZCsbLg2e5O9SK8fXfcXn4nI/p2c4QvlI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\presets.json" size="515">
+  <file name="Resources\presets.json" size="705">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6x1zhpIIsy7PfqgSKAtfEnak5EGbQ/zMe5MBptqkDDI=</dsig:DigestValue>
+      <dsig:DigestValue>8pgMqS6nosNZjc/1zgce4TiU9GamHljXBjlEEgIwowo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Quote_Template(ReadOnly).xlsx" size="43671">

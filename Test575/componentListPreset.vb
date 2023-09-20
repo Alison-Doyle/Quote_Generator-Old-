@@ -5,12 +5,15 @@ Public Class ComponentListPreset
     Public Property presetName
 
     <JsonProperty("components")>
-    Public Property components As List(Of Component)
+    Public Property components As New List(Of Component)
 
     'Constructors
     Public Sub New()
     End Sub
 
+    Public Sub New(name As String)
+        presetName = name
+    End Sub
 
     Public Sub New(name As String, comps As List(Of Component))
         presetName = name

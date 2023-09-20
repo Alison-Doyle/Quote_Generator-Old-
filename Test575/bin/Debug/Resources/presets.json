@@ -1,16 +1,16 @@
-﻿[
+[
   {
     "presetName": "1 VSD Panel",
     "components": [
       {
         "code": "A1C1",
         "quantity": 10,
-        "markUp": 10
+        "markUp": 10.0
       },
       {
         "code": "A1D1",
         "quantity": 10,
-        "markUp": 10
+        "markUp": 10.0
       }
     ]
   },
@@ -18,14 +18,24 @@
     "presetName": "2 VSD Panel",
     "components": [
       {
-        "code": "A1A1",
+        "code": "a1a1",
         "quantity": 10,
-        "markUp": 10
+        "markUp": 23.0
       },
       {
-        "code": "A1B1",
-        "quantity": 5,
-        "markUp": 23
+        "code": "a1b1",
+        "quantity": 10,
+        "markUp": 23.0
+      },
+      {
+        "code": "a1c1",
+        "quantity": 10,
+        "markUp": 23.0
+      },
+      {
+        "code": "a1d1",
+        "quantity": 10,
+        "markUp": 23.0
       }
     ]
   }
