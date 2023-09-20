@@ -1,11 +1,7 @@
-﻿Imports System.Data.SqlClient
-Imports System.IO
+﻿Imports System.IO
 Imports System.Text.RegularExpressions
-Imports DocumentFormat.OpenXml.ExtendedProperties
-Imports DocumentFormat.OpenXml.Spreadsheet
 Imports MySql.Data.MySqlClient
 Imports Newtonsoft.Json
-Imports Org.BouncyCastle.Crypto.Engines
 
 Public Class Settings
     Private arePresetChangesSaved As Boolean = False
@@ -402,12 +398,10 @@ Public Class Settings
         Dim sqlConnection = New MySqlConnection
         sqlConnection.ConnectionString = "Server=Localhost;Userid=root;password=" & My.Settings.DatabasePassword & ";database=" & My.Settings.DatabaseName
 
-        Dim reader As MySqlDataReader
-
         Try
             sqlConnection.Open()
 
-            Dim query As String = $"UPDATE {My.Settings.InventoryTableName} SET `ID`='{ComponentId.Text}', `Description`='{ComponentDescription.Text}', `Supplier`='{ComponentSupplier.Text}', `Cost`='{ComponentCost.Text}' WHERE (`ID`='{ComponentId.Text.ToUpper}')"
+            Dim query As String = $"UPDATE {My.Settings.InventoryTableName} SET `Description`='{ComponentDescription.Text}', `Supplier`='{ComponentSupplier.Text}', `Cost`='{ComponentCost.Text}' WHERE (`ID`='{ComponentId.Text.ToUpper}')"
             Dim command As New MySqlCommand(query, sqlConnection)
             command.ExecuteNonQuery()
 
