@@ -3,6 +3,7 @@ Imports Microsoft.Office.Interop
 Imports Test575.standardProgramFunctions
 Imports Newtonsoft.Json
 Imports System.IO
+Imports DocumentFormat.OpenXml.Spreadsheet
 
 Public Class QuoteGenerator3
     Public presetsData As List(Of ComponentListPreset)
@@ -18,10 +19,10 @@ Public Class QuoteGenerator3
         returnToMainMenu()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
         'Getting Componant Information
         Dim componantInformation As (String, String, Double)
-        componantInformation = findItemInDatabase(Proj_CompID.Text)
+        componantInformation = findItemInDatabase(Proj_CompID.Text, False)
 
         'Filling in textboxes
         Proj_CompSupply.Text = componantInformation.Item1
@@ -72,6 +73,14 @@ Public Class QuoteGenerator3
         FillDatagridViewWithPresetData()
     End Sub
 
+    Private Sub Proj_CompID_TextChanged(sender As Object, e As EventArgs) Handles Proj_CompID.TextChanged
+        Dim componentInformation = findItemInDatabase(Proj_CompID.Text, False)
+
+        Proj_CompSupply.Text = componentInformation.Item1
+        Proj_CompDesc.Text = componentInformation.Item2
+        Proj_CompCost.Text = componentInformation.Item3
+    End Sub
+
     Sub goToLastPage()
         Dim page2 = QuoteGenerator2
         page2.quoteLocation = quoteLocation
@@ -98,7 +107,17 @@ Public Class QuoteGenerator3
         End If
     End Sub
 
-    Function findItemInDatabase(componentCode)
+    Private Sub PresetDetailsView_Delete(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Proj_CompViewer.KeyDown
+        ' If Delete button on keyboard is pressed
+        If (e.KeyCode = Keys.Delete) Then
+            Dim componentIndex As Integer = Proj_CompViewer.SelectedCells.Item(0).RowIndex
+
+            componantsTotal -= Proj_CompViewer.Rows(componentIndex).Cells(3).Value
+            Proj_CompTotal.Text = componantsTotal.ToString("C2")
+        End If
+    End Sub
+
+    Function findItemInDatabase(componentCode, calledFromButton)
         Dim databaseSearchResults As (String, String, Double) = ("", "", 0.00)
 
         'Simplifying variable names
@@ -128,7 +147,9 @@ Public Class QuoteGenerator3
                 databaseSearchResults.Item2 = reader.GetString("Description")
                 databaseSearchResults.Item3 = reader.GetDouble("Cost")
             Else
-                MessageBox.Show("Something went wrong")
+                If calledFromButton Then
+                    MessageBox.Show("Something went wrong")
+                End If
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -141,53 +162,59 @@ Public Class QuoteGenerator3
     End Function
 
     Sub addItemToProposedHardwareTable()
+        Dim code = Proj_CompID.Text
         Dim quantity = Proj_CompTakeOut.Text
         Dim percentageAddOn = Proj_CompPrecentage.Text
 
-        If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False And String.IsNullOrEmpty(Proj_CompID.Text) = False Then
-            Dim totalCost As Decimal
+        If ValidateComponentExists(code) Then
+            If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False And String.IsNullOrEmpty(Proj_CompID.Text) = False Then
+                Dim totalCost As Decimal
 
-            'Simplifying variable names
-            Dim supplier As String = Proj_CompSupply.Text
-            Dim description As String = Proj_CompDesc.Text
-            Dim cost As String = Proj_CompCost.Text
+                'Simplifying variable names
+                Dim supplier As String = Proj_CompSupply.Text
+                Dim description As String = Proj_CompDesc.Text
+                Dim cost As String = Proj_CompCost.Text
 
-            If String.IsNullOrWhiteSpace(supplier) Or String.IsNullOrWhiteSpace(description) Or String.IsNullOrWhiteSpace(cost) Then
-                'Fetching missing data from database
-                Dim databaseInformation As (String, String, Double)
-                Dim componentCode As String = Proj_CompID.Text
-                databaseInformation = findItemInDatabase(componentCode)
-                supplier = databaseInformation.Item1
-                description = databaseInformation.Item2
-                cost = databaseInformation.Item3
-            End If
-
-            'Calculating cost of component
-            totalCost = (cost * quantity) * ((100 + percentageAddOn) / 100)
-
-            'Checking if component already exists in table and adding component appropriately depending on if it is or not
-            Dim componantExists As Boolean = False
-            Dim componantIndex As Integer
-            For i As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
-                If Proj_CompViewer.Rows(i).Cells(1).Value.ToString() = description Then
-                    componantExists = True
-                    componantIndex = i
+                If String.IsNullOrWhiteSpace(supplier) Or String.IsNullOrWhiteSpace(description) Or String.IsNullOrWhiteSpace(cost) Then
+                    'Fetching missing data from database
+                    Dim databaseInformation As (String, String, Double)
+                    Dim componentCode As String = Proj_CompID.Text
+                    databaseInformation = findItemInDatabase(componentCode, False)
+                    supplier = databaseInformation.Item1
+                    description = databaseInformation.Item2
+                    cost = databaseInformation.Item3
                 End If
-            Next
 
-            If componantExists = True Then
-                Proj_CompViewer.Rows(componantIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componantIndex).Cells(2).Value)
-                Proj_CompViewer.Rows(componantIndex).Cells(3).Value = totalCost + Convert.ToDouble(Proj_CompViewer.Rows(componantIndex).Cells(3).Value)
+                'Calculating cost of component
+                totalCost = (cost * quantity) * ((100 + percentageAddOn) / 100)
+
+                'Checking if component already exists in table and adding component appropriately depending on if it is or not
+                Dim componantExists As Boolean = False
+                Dim componantIndex As Integer
+                For i As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
+                    If Proj_CompViewer.Rows(i).Cells(1).Value.ToString() = description Then
+                        componantExists = True
+                        componantIndex = i
+                    End If
+                Next
+
+                If componantExists = True Then
+                    Proj_CompViewer.Rows(componantIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componantIndex).Cells(2).Value)
+                    Dim newValue = totalCost + Proj_CompViewer.Rows(componantIndex).Cells(3).Value
+                    Proj_CompViewer.Rows(componantIndex).Cells(3).Value.ToString() = newValue.ToString("C")
+                Else
+                    Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost.ToString("C"))
+                End If
+
+                'Increasing total componants value
+                componantsTotal += totalCost
+                Proj_CompTotal.Text = componantsTotal.ToString("c")
+
             Else
-                Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost)
+                MessageBox.Show("Please make sure all necessary boxes are filled in before adding a component")
             End If
-
-            'Increasing total componants value
-            componantsTotal += totalCost
-            Proj_CompTotal.Text = "€" + componantsTotal.ToString()
-
         Else
-            MessageBox.Show("Please make sure all necessary boxes are filled in before adding a component")
+            MessageBox.Show("Component does not exist in database", "Error")
         End If
     End Sub
 
@@ -268,7 +295,7 @@ Public Class QuoteGenerator3
                 Dim description As String
                 Dim costPerUnit As Double
 
-                databaseSearchResults = findItemInDatabase(componentCode)
+                databaseSearchResults = findItemInDatabase(componentCode, False)
 
                 supplier = databaseSearchResults.Item1
                 description = databaseSearchResults.Item2
@@ -294,17 +321,39 @@ Public Class QuoteGenerator3
                     Proj_CompViewer.Rows(componentIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componentIndex).Cells(2).Value)
                     Proj_CompViewer.Rows(componentIndex).Cells(3).Value = totalCost + Convert.ToDouble(Proj_CompViewer.Rows(componentIndex).Cells(3).Value)
                 Else
-                    Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost)
+                    Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost.ToString("C"))
                 End If
 
                 'Updating componentns total
                 componantsTotal += totalCost
-                Proj_CompTotal.Text = "€" + componantsTotal.ToString()
+                Proj_CompTotal.Text = componantsTotal.ToString("C")
             Next
         End If
     End Sub
 
-    Private Sub Proj_CompViewer_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Proj_CompViewer.CellContentClick
+    Function ValidateComponentExists(componentCode)
+        Dim componentExists As Boolean = False
 
-    End Sub
+        Dim sqlConnection = New MySqlConnection
+        sqlConnection.ConnectionString = "Server=Localhost;Userid=root;password=" & My.Settings.DatabasePassword & ";database=" & My.Settings.DatabaseName
+
+        Try
+            sqlConnection.Open()
+
+            Dim query As String = $"SELECT COUNT(*) FROM {My.Settings.InventoryTableName} WHERE (`ID` = '{componentCode}')"
+            Dim command As New MySqlCommand(query, sqlConnection)
+
+            If (command.ExecuteScalar() >= 1) Then
+                componentExists = True
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            sqlConnection.Close()
+            sqlConnection.Dispose()
+        End Try
+
+        Return componentExists
+    End Function
+
 End Class

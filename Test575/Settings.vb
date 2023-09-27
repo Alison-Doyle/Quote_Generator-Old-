@@ -92,7 +92,7 @@ Public Class Settings
     End Sub
 
     Private Sub AddComponentButton_Click(sender As Object, e As EventArgs) Handles addComponentButton.Click
-        AddNewComponent(listOfPresets.SelectedItem)
+        AddComponentToPreset(listOfPresets.SelectedItem)
     End Sub
 
     Private Sub DeletePresetButton_Click(sender As Object, e As EventArgs) Handles deletePresetButton.Click
@@ -114,7 +114,7 @@ Public Class Settings
             availablePresets.Add(New ComponentListPreset(newPresetName.Text))
             PopulatePresetsListView()
         Else
-            MessageBox.Show("This preset already exists; Please select a different name", "Error")
+            MessageBox.Show("Invalid Name. Please make you entered a name and that the preset doesn't already exist", "Error")
         End If
     End Sub
 
@@ -135,6 +135,33 @@ Public Class Settings
         End If
     End Sub
 
+    Private Sub PresetDetailsView_Delete(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles presetDetailsView.KeyDown
+        ' If Delete button on keyboard is pressed
+        If (e.KeyCode = Keys.Delete) Then
+            'Variables
+            Dim componentToBeDeletedIndex As Integer = presetDetailsView.SelectedCells.Item(0).RowIndex
+            Dim presetIndex As Integer
+            Dim presetExists As Boolean = False
+
+            'Find preset index
+            For i As Integer = 0 To availablePresets.Count - 1 Step +1
+                If availablePresets(i).presetName = listOfPresets.SelectedItem Then
+                    presetExists = True
+                    presetIndex = i
+                End If
+            Next
+
+            'Removing component from correct preset
+            If presetExists = True Then
+                For i As Integer = availablePresets(presetIndex).components.Count - 1 To 0 Step -1
+                    If availablePresets(presetIndex).components(i).code = presetDetailsView.Rows(componentToBeDeletedIndex).Cells(0).Value Then
+                        availablePresets(presetIndex).components.RemoveAt(i)
+                    End If
+                Next
+            End If
+        End If
+    End Sub
+
     Sub JsonToPresetList()
         Dim presetFileLocation As String = "../../Resources/presets.json"
 
@@ -148,11 +175,15 @@ Public Class Settings
     Function ValidatePresetName(presetName As String)
         Dim nameIsValid = True
 
-        For i As Integer = 0 To availablePresets.Count - 1 Step +1
-            If availablePresets(i).presetName.ToString().ToUpper() = presetName.ToUpper() Then
-                nameIsValid = False
-            End If
-        Next
+        If (String.IsNullOrEmpty(presetName)) Then
+            nameIsValid = False
+        Else
+            For i As Integer = 0 To availablePresets.Count - 1 Step +1
+                If availablePresets(i).presetName.ToString().ToUpper() = presetName.ToUpper() Then
+                    nameIsValid = False
+                End If
+            Next
+        End If
 
         Return nameIsValid
     End Function
@@ -182,75 +213,80 @@ Public Class Settings
                     Dim cost As Double = descAndCost.Item2
                     Dim totalCost As Double = CalculateCostOfComponent(cost, quantity, availablePresets(i).components(j).markUp)
 
-                    presetDetailsView.Rows.Add(componentCode, description, quantity, markUp, totalCost)
+                    presetDetailsView.Rows.Add(componentCode, description, quantity, markUp, Format(totalCost, "N2"))
                 Next
             End If
         Next
     End Sub
 
-    Sub AddNewComponent(presetName)
+    Sub AddComponentToPreset(presetName)
+        Dim code = componentCode.Text
         Dim quantity = componentQuantity.Text
         Dim percentageAddOn = componentMarkUp.Text
         If listOfPresets.SelectedItem = Nothing Then
             MessageBox.Show("Please select a preset before adding components")
         Else
-            If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False Then
+            If ValidateComponentExists(code) Then
+                If String.IsNullOrEmpty(quantity) = False And String.IsNullOrEmpty(percentageAddOn) = False Then
 
-                Dim totalCost As Double
+                    Dim totalCost As Double
 
-                'Simplifying variable names
-                Dim description As String = ""
-                Dim cost As String = ""
+                    'Simplifying variable names
+                    Dim description As String = ""
+                    Dim cost As String = ""
 
-                If String.IsNullOrWhiteSpace(componentCode.Text) = False Then
-                    'Fetching missing data from database
-                    Dim databaseInformation As (String, Double)
-                    databaseInformation = FindItemInDatabase(componentCode.Text)
-                    description = databaseInformation.Item1
-                    cost = databaseInformation.Item2
-                End If
-
-                'Calculating cost of component
-                totalCost = CalculateCostOfComponent(cost, quantity, percentageAddOn)
-
-                'Getting index of preset from List()
-                Console.WriteLine($"Adding object to {presetName}")
-                Dim presetExists As Boolean = False
-                Dim presetIndex As Integer = Nothing
-                For i As Integer = 0 To availablePresets.Count - 1 Step +1
-                    If availablePresets(i).presetName = presetName Then
-                        presetExists = True
-                        presetIndex = i
+                    If String.IsNullOrWhiteSpace(code) = False Then
+                        'Fetching missing data from database
+                        Dim databaseInformation As (String, Double)
+                        databaseInformation = FindItemInDatabase(code)
+                        description = databaseInformation.Item1
+                        cost = databaseInformation.Item2
                     End If
-                Next
 
-                If presetExists = True Then
-                    Dim componentExits As Boolean = False
-                    Dim componentIndex As Integer
+                    'Calculating cost of component
+                    totalCost = CalculateCostOfComponent(cost, quantity, percentageAddOn)
 
-                    'Cycling through preset's components to see if it exists and to get its index
-                    For j As Integer = 0 To availablePresets(presetIndex).components.Count - 1 Step +1
-                        If availablePresets(presetIndex).components(j).code = componentCode.Text.ToUpper() Then
-                            componentExits = True
-                            componentIndex = j
+                    'Getting index of preset from List()
+                    Console.WriteLine($"Adding object to {presetName}")
+                    Dim presetExists As Boolean = False
+                    Dim presetIndex As Integer = Nothing
+                    For i As Integer = 0 To availablePresets.Count - 1 Step +1
+                        If availablePresets(i).presetName = presetName Then
+                            presetExists = True
+                            presetIndex = i
                         End If
                     Next
 
-                    'Adding component or updating component's information based on if it already exists or not
-                    If componentExits = True Then
-                        availablePresets(presetIndex).components(componentIndex).quantity += quantity
-                        availablePresets(presetIndex).components(componentIndex).markUp = percentageAddOn
-                        PopulatePresetDetailsView(availablePresets(presetIndex).presetName)
-                    Else
-                        availablePresets(presetIndex).components.Add(New Component(componentCode.Text, quantity, percentageAddOn))
-                        PopulatePresetDetailsView(availablePresets(presetIndex).presetName)
-                    End If
-                Else
-                    MessageBox.Show("Cannot find the correct preset to add to")
-                End If
+                    If presetExists = True Then
+                        Dim componentExits As Boolean = False
+                        Dim componentIndex As Integer
 
+                        'Cycling through preset's components to see if it exists and to get its index
+                        For j As Integer = 0 To availablePresets(presetIndex).components.Count - 1 Step +1
+                            If availablePresets(presetIndex).components(j).code = code.ToUpper() Then
+                                componentExits = True
+                                componentIndex = j
+                            End If
+                        Next
+
+                        'Adding component or updating component's information based on if it already exists or not
+                        If componentExits = True Then
+                            availablePresets(presetIndex).components(componentIndex).quantity += quantity
+                            availablePresets(presetIndex).components(componentIndex).markUp = percentageAddOn
+                            PopulatePresetDetailsView(availablePresets(presetIndex).presetName)
+                        Else
+                            availablePresets(presetIndex).components.Add(New Component(componentCode.Text.ToUpper(), quantity, percentageAddOn))
+                            PopulatePresetDetailsView(availablePresets(presetIndex).presetName)
+                        End If
+                    Else
+                        MessageBox.Show("Cannot find the correct preset to add to")
+                    End If
+
+                Else
+                    MessageBox.Show("Please make sure the estimated needed amount and percentage add-on are filled in")
+                End If
             Else
-                MessageBox.Show("Please make sure the estimated needed amount and percentage add-on are filled in")
+                MessageBox.Show("Item does not exist")
             End If
         End If
     End Sub
@@ -407,7 +443,7 @@ Public Class Settings
 
             Await PopulateComponentsViewer()
             ClearComponentTextboxes()
-            MessageBox.Show("Component Added")
+            MessageBox.Show("Component Updated")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         Finally
@@ -494,10 +530,39 @@ Public Class Settings
         DeleteComponent()
     End Sub
 
+    Function ValidateComponentExists(componentCode)
+        Dim componentExists As Boolean = False
+
+        Dim sqlConnection = New MySqlConnection
+        sqlConnection.ConnectionString = "Server=Localhost;Userid=root;password=" & My.Settings.DatabasePassword & ";database=" & My.Settings.DatabaseName
+
+        Try
+            sqlConnection.Open()
+
+            Dim query As String = $"SELECT COUNT(*) FROM {My.Settings.InventoryTableName} WHERE (`ID` = '{componentCode}')"
+            Dim command As New MySqlCommand(query, sqlConnection)
+
+            If (command.ExecuteScalar() >= 1) Then
+                componentExists = True
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+        Finally
+            sqlConnection.Close()
+            sqlConnection.Dispose()
+        End Try
+
+        Return componentExists
+    End Function
+
     Sub ClearComponentTextboxes()
         ComponentId.Text = ""
         ComponentDescription.Text = ""
         ComponentSupplier.Text = ""
         ComponentCost.Text = ""
+    End Sub
+
+    Private Sub presetDetailsView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles presetDetailsView.CellContentClick
+
     End Sub
 End Class

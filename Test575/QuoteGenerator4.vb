@@ -78,9 +78,9 @@ Public Class QuoteGenerator4
 
             Dim x As Integer
             If Integer.TryParse(componentsIndex, x) Then
-                Proj_CostBreakDown.Rows(componentsIndex).Cells(1).Value = componentsTotal
+                Proj_CostBreakDown.Rows(componentsIndex).Cells(1).Value = Format(componentsTotal, "N2")
             Else
-                Proj_CostBreakDown.Rows.Add(componentRowHeader, componentsTotal)
+                Proj_CostBreakDown.Rows.Add(componentRowHeader, Format(componentsTotal, "N2"))
             End If
         Catch ex As Exception
             MessageBox.Show("Error")
@@ -133,9 +133,5 @@ Public Class QuoteGenerator4
             GC.Collect()
             GC.WaitForPendingFinalizers()
         End Try
-    End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
     End Sub
 End Class

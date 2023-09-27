@@ -8,9 +8,14 @@
         "markUp": 10.0
       },
       {
-        "code": "A1D1",
-        "quantity": 10,
+        "code": "A1A1",
+        "quantity": 30,
         "markUp": 10.0
+      },
+      {
+        "code": "A1B1",
+        "quantity": 100,
+        "markUp": 13.5
       }
     ]
   },
@@ -18,24 +23,9 @@
     "presetName": "2 VSD Panel",
     "components": [
       {
-        "code": "a1a1",
+        "code": "A1A1",
         "quantity": 10,
-        "markUp": 23.0
-      },
-      {
-        "code": "a1b1",
-        "quantity": 10,
-        "markUp": 23.0
-      },
-      {
-        "code": "a1c1",
-        "quantity": 10,
-        "markUp": 23.0
-      },
-      {
-        "code": "a1d1",
-        "quantity": 10,
-        "markUp": 23.0
+        "markUp": 20.0
       }
     ]
   }

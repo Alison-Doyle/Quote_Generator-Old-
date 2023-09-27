@@ -1,7 +1,6 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Windows
 Imports Test575.standardProgramFunctions
-Imports Google.Protobuf.Reflection
 
 Public Class QuoteGen
     Public quoteLocation As String
@@ -220,14 +219,6 @@ Public Class QuoteGen
 
     Private Sub createFileButton_Click(sender As Object, e As EventArgs) Handles createFileButton.Click
         createExcelFile()
-    End Sub
-
-    Private Sub Proj_DocDesc_TextChanged(sender As Object, e As EventArgs) Handles Proj_DocDesc.TextChanged
-
-    End Sub
-
-    Private Sub Doc_CompanyName_TextChanged(sender As Object, e As EventArgs) Handles Doc_CompanyName.TextChanged
-
     End Sub
 
     Function validateName(nameToCheck As String)
