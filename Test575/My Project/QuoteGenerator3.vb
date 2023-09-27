@@ -200,8 +200,8 @@ Public Class QuoteGenerator3
 
                 If componantExists = True Then
                     Proj_CompViewer.Rows(componantIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componantIndex).Cells(2).Value)
-                    Dim newValue = totalCost + Proj_CompViewer.Rows(componantIndex).Cells(3).Value
-                    Proj_CompViewer.Rows(componantIndex).Cells(3).Value.ToString() = newValue.ToString("C")
+                    Dim newTotal As Double = totalCost + Proj_CompViewer.Rows(componantIndex).Cells(3).Value
+                    Proj_CompViewer.Rows(componantIndex).Cells(3).Value = newTotal.ToString("C")
                 Else
                     Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost.ToString("C"))
                 End If
