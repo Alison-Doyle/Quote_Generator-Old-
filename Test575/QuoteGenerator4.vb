@@ -16,6 +16,12 @@ Public Class QuoteGenerator4
         Me.AutoScroll = True
     End Sub
 
+    Private Sub QuoteGenerator4_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        If e.CloseReason = CloseReason.UserClosing Then
+            endQuoteCreation(e)
+        End If
+    End Sub
+
     Private Sub QuoteGenerator4_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
         fillInComponentsTotal()
     End Sub
@@ -61,6 +67,7 @@ Public Class QuoteGenerator4
 
     Sub goToNextPage()
         Dim page6 = QuoteGen5
+        page6.quoteLocation = quoteLocation
         page6.Show()
         Me.Hide()
     End Sub

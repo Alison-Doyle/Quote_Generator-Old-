@@ -11,8 +11,10 @@ Public Class QuoteGen
         Me.AutoScroll = True
     End Sub
 
-    Private Sub QuoteGenerator_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
-        closeProgram(e, True)
+    Private Sub QuoteGenerator_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        If e.CloseReason = CloseReason.UserClosing Then
+            endQuoteCreation(e)
+        End If
     End Sub
 
     Private Sub BackBtn_Click_1(sender As Object, e As EventArgs) Handles BackBtn.Click 'Back to MainMenu (Bottom)

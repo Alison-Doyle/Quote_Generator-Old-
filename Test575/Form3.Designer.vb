@@ -22,8 +22,8 @@ Partial Class QuoteGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.createFileButton = New System.Windows.Forms.Button()
         Me.selectFileLocationButton = New System.Windows.Forms.Button()
@@ -97,7 +97,7 @@ Partial Class QuoteGen
         Me.createFileButton.Location = New System.Drawing.Point(570, 130)
         Me.createFileButton.Name = "createFileButton"
         Me.createFileButton.Size = New System.Drawing.Size(75, 23)
-        Me.createFileButton.TabIndex = 6
+        Me.createFileButton.TabIndex = 5
         Me.createFileButton.Text = "Create File"
         Me.createFileButton.UseVisualStyleBackColor = True
         '
@@ -105,10 +105,10 @@ Partial Class QuoteGen
         '
         Me.selectFileLocationButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.selectFileLocationButton.Location = New System.Drawing.Point(444, 110)
-        Me.selectFileLocationButton.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.selectFileLocationButton.Margin = New System.Windows.Forms.Padding(2)
         Me.selectFileLocationButton.Name = "selectFileLocationButton"
         Me.selectFileLocationButton.Size = New System.Drawing.Size(91, 23)
-        Me.selectFileLocationButton.TabIndex = 5
+        Me.selectFileLocationButton.TabIndex = 4
         Me.selectFileLocationButton.Text = "Pick Location"
         Me.selectFileLocationButton.UseVisualStyleBackColor = True
         '
@@ -118,7 +118,7 @@ Partial Class QuoteGen
         Me.Doc_FileName.Location = New System.Drawing.Point(234, 27)
         Me.Doc_FileName.Name = "Doc_FileName"
         Me.Doc_FileName.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_FileName.TabIndex = 3
+        Me.Doc_FileName.TabIndex = 0
         '
         'Label12
         '
@@ -136,7 +136,7 @@ Partial Class QuoteGen
         Me.Doc_CompanyName.Location = New System.Drawing.Point(234, 55)
         Me.Doc_CompanyName.Name = "Doc_CompanyName"
         Me.Doc_CompanyName.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_CompanyName.TabIndex = 0
+        Me.Doc_CompanyName.TabIndex = 1
         '
         'Doc_QuoteNo
         '
@@ -145,7 +145,7 @@ Partial Class QuoteGen
         Me.Doc_QuoteNo.Location = New System.Drawing.Point(234, 83)
         Me.Doc_QuoteNo.Name = "Doc_QuoteNo"
         Me.Doc_QuoteNo.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_QuoteNo.TabIndex = 1
+        Me.Doc_QuoteNo.TabIndex = 2
         '
         'Label2
         '
@@ -164,7 +164,7 @@ Partial Class QuoteGen
         Me.Doc_DocLocation.Name = "Doc_DocLocation"
         Me.Doc_DocLocation.ReadOnly = True
         Me.Doc_DocLocation.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_DocLocation.TabIndex = 0
+        Me.Doc_DocLocation.TabIndex = 3
         '
         'Label3
         '
@@ -238,7 +238,7 @@ Partial Class QuoteGen
         Me.Doc_DocOwner.Location = New System.Drawing.Point(234, 58)
         Me.Doc_DocOwner.Name = "Doc_DocOwner"
         Me.Doc_DocOwner.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_DocOwner.TabIndex = 2
+        Me.Doc_DocOwner.TabIndex = 1
         '
         'Doc_RefNumber
         '
@@ -246,7 +246,7 @@ Partial Class QuoteGen
         Me.Doc_RefNumber.Location = New System.Drawing.Point(234, 87)
         Me.Doc_RefNumber.Name = "Doc_RefNumber"
         Me.Doc_RefNumber.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_RefNumber.TabIndex = 3
+        Me.Doc_RefNumber.TabIndex = 2
         '
         'Doc_RevisionNumber
         '
@@ -254,7 +254,7 @@ Partial Class QuoteGen
         Me.Doc_RevisionNumber.Location = New System.Drawing.Point(234, 31)
         Me.Doc_RevisionNumber.Name = "Doc_RevisionNumber"
         Me.Doc_RevisionNumber.Size = New System.Drawing.Size(206, 22)
-        Me.Doc_RevisionNumber.TabIndex = 1
+        Me.Doc_RevisionNumber.TabIndex = 0
         '
         'GroupBox3
         '
@@ -291,9 +291,9 @@ Partial Class QuoteGen
         'Proj_DocViewer
         '
         Me.Proj_DocViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.Proj_DocViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Proj_DocViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_DocViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
@@ -302,10 +302,10 @@ Partial Class QuoteGen
         Me.Proj_DocViewer.Name = "Proj_DocViewer"
         Me.Proj_DocViewer.RowHeadersVisible = False
         Me.Proj_DocViewer.RowHeadersWidth = 51
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.Proj_DocViewer.Size = New System.Drawing.Size(636, 191)
-        Me.Proj_DocViewer.TabIndex = 17
+        Me.Proj_DocViewer.TabIndex = 6
         '
         'Column1
         '
@@ -452,7 +452,7 @@ Partial Class QuoteGen
         Me.Button9.Location = New System.Drawing.Point(579, 922)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(84, 23)
-        Me.Button9.TabIndex = 6
+        Me.Button9.TabIndex = 7
         Me.Button9.Text = "Next Page"
         Me.Button9.UseVisualStyleBackColor = True
         '

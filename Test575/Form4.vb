@@ -7,8 +7,10 @@ Public Class QuoteGenerator2
     Private Sub QuoteGenerator2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = True
     End Sub
-    Private Sub QuoteGenerator2_Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
-        closeProgram(e, True)
+    Private Sub QuoteGenerator2_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        If e.CloseReason = CloseReason.UserClosing Then
+            endQuoteCreation(e)
+        End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click 'Previous Page Button
         goToLastPage()

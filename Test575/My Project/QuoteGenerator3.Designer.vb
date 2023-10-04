@@ -22,9 +22,8 @@ Partial Class QuoteGenerator3
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.BackBtn = New System.Windows.Forms.Button()
@@ -72,7 +71,7 @@ Partial Class QuoteGenerator3
         Me.Button2.Location = New System.Drawing.Point(566, 1031)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(101, 23)
-        Me.Button2.TabIndex = 6
+        Me.Button2.TabIndex = 7
         Me.Button2.Text = "Next Page"
         Me.Button2.UseVisualStyleBackColor = False
         '
@@ -83,7 +82,7 @@ Partial Class QuoteGenerator3
         Me.Button1.Location = New System.Drawing.Point(459, 1031)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(101, 23)
-        Me.Button1.TabIndex = 5
+        Me.Button1.TabIndex = 6
         Me.Button1.Text = "Previous Page"
         Me.Button1.UseVisualStyleBackColor = False
         '
@@ -94,7 +93,7 @@ Partial Class QuoteGenerator3
         Me.BackBtn.Location = New System.Drawing.Point(12, 1031)
         Me.BackBtn.Name = "BackBtn"
         Me.BackBtn.Size = New System.Drawing.Size(101, 23)
-        Me.BackBtn.TabIndex = 3
+        Me.BackBtn.TabIndex = 4
         Me.BackBtn.Text = "Back to Menu"
         Me.BackBtn.UseVisualStyleBackColor = False
         '
@@ -158,7 +157,7 @@ Partial Class QuoteGenerator3
         Me.Proj_DescPLC.Multiline = True
         Me.Proj_DescPLC.Name = "Proj_DescPLC"
         Me.Proj_DescPLC.Size = New System.Drawing.Size(631, 206)
-        Me.Proj_DescPLC.TabIndex = 12
+        Me.Proj_DescPLC.TabIndex = 13
         '
         'Button8
         '
@@ -195,7 +194,7 @@ Partial Class QuoteGenerator3
         Me.Proj_CompPrecentage.Location = New System.Drawing.Point(6, 348)
         Me.Proj_CompPrecentage.Name = "Proj_CompPrecentage"
         Me.Proj_CompPrecentage.Size = New System.Drawing.Size(218, 22)
-        Me.Proj_CompPrecentage.TabIndex = 7
+        Me.Proj_CompPrecentage.TabIndex = 8
         '
         'Label9
         '
@@ -223,7 +222,7 @@ Partial Class QuoteGenerator3
         Me.Proj_DescSCADA.Multiline = True
         Me.Proj_DescSCADA.Name = "Proj_DescSCADA"
         Me.Proj_DescSCADA.Size = New System.Drawing.Size(631, 206)
-        Me.Proj_DescSCADA.TabIndex = 13
+        Me.Proj_DescSCADA.TabIndex = 14
         '
         'Label7
         '
@@ -242,7 +241,7 @@ Partial Class QuoteGenerator3
         Me.Proj_CompCost.Name = "Proj_CompCost"
         Me.Proj_CompCost.ReadOnly = True
         Me.Proj_CompCost.Size = New System.Drawing.Size(218, 22)
-        Me.Proj_CompCost.TabIndex = 3
+        Me.Proj_CompCost.TabIndex = 6
         '
         'Button3
         '
@@ -257,35 +256,27 @@ Partial Class QuoteGenerator3
         'Proj_CompViewer
         '
         Me.Proj_CompViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_CompViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_CompViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Proj_CompViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Proj_CompViewer.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.Proj_CompViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_CompViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Hardware_Supplier, Me.Hardware_Desc, Me.Hardware_Quantity, Me.Hardware_Cost})
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Proj_CompViewer.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Proj_CompViewer.DefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_CompViewer.EnableHeadersVisualStyles = False
         Me.Proj_CompViewer.Location = New System.Drawing.Point(233, 18)
         Me.Proj_CompViewer.Name = "Proj_CompViewer"
         Me.Proj_CompViewer.ReadOnly = True
         Me.Proj_CompViewer.RowHeadersWidth = 51
         Me.Proj_CompViewer.Size = New System.Drawing.Size(413, 438)
-        Me.Proj_CompViewer.TabIndex = 11
+        Me.Proj_CompViewer.TabIndex = 12
         '
         'Hardware_Supplier
         '
@@ -293,7 +284,7 @@ Partial Class QuoteGenerator3
         Me.Hardware_Supplier.MinimumWidth = 6
         Me.Hardware_Supplier.Name = "Hardware_Supplier"
         Me.Hardware_Supplier.ReadOnly = True
-        Me.Hardware_Supplier.Width = 92
+        Me.Hardware_Supplier.Width = 116
         '
         'Hardware_Desc
         '
@@ -310,7 +301,7 @@ Partial Class QuoteGenerator3
         Me.Hardware_Quantity.MinimumWidth = 6
         Me.Hardware_Quantity.Name = "Hardware_Quantity"
         Me.Hardware_Quantity.ReadOnly = True
-        Me.Hardware_Quantity.Width = 58
+        Me.Hardware_Quantity.Width = 70
         '
         'Hardware_Cost
         '
@@ -320,7 +311,7 @@ Partial Class QuoteGenerator3
         Me.Hardware_Cost.MinimumWidth = 6
         Me.Hardware_Cost.Name = "Hardware_Cost"
         Me.Hardware_Cost.ReadOnly = True
-        Me.Hardware_Cost.Width = 67
+        Me.Hardware_Cost.Width = 81
         '
         'Label13
         '
@@ -356,7 +347,7 @@ Partial Class QuoteGenerator3
         Me.Proj_CompTakeOut.Location = New System.Drawing.Point(6, 304)
         Me.Proj_CompTakeOut.Name = "Proj_CompTakeOut"
         Me.Proj_CompTakeOut.Size = New System.Drawing.Size(218, 22)
-        Me.Proj_CompTakeOut.TabIndex = 6
+        Me.Proj_CompTakeOut.TabIndex = 7
         '
         'Label2
         '
@@ -452,7 +443,7 @@ Partial Class QuoteGenerator3
         Me.Button12.Location = New System.Drawing.Point(300, 1031)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(101, 23)
-        Me.Button12.TabIndex = 4
+        Me.Button12.TabIndex = 5
         Me.Button12.Text = "Insert Page"
         Me.Button12.UseVisualStyleBackColor = True
         '
@@ -461,7 +452,7 @@ Partial Class QuoteGenerator3
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(701, 683)
+        Me.ClientSize = New System.Drawing.Size(704, 689)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button9)

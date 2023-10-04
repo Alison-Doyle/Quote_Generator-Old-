@@ -22,13 +22,9 @@ Partial Class QuoteGenerator4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Proj_CostBreakDown = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -81,32 +77,16 @@ Partial Class QuoteGenerator4
         'Proj_CostBreakDown
         '
         Me.Proj_CostBreakDown.AllowUserToAddRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_CostBreakDown.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Proj_CostBreakDown.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_CostBreakDown.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.Proj_CostBreakDown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_CostBreakDown.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Cost})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Proj_CostBreakDown.DefaultCellStyle = DataGridViewCellStyle3
         Me.Proj_CostBreakDown.Location = New System.Drawing.Point(10, 508)
         Me.Proj_CostBreakDown.Name = "Proj_CostBreakDown"
         Me.Proj_CostBreakDown.RowHeadersWidth = 51
         Me.Proj_CostBreakDown.Size = New System.Drawing.Size(632, 464)
-        Me.Proj_CostBreakDown.TabIndex = 8
+        Me.Proj_CostBreakDown.TabIndex = 6
         '
         'DataGridViewTextBoxColumn1
         '
@@ -128,7 +108,7 @@ Partial Class QuoteGenerator4
         Me.Button7.Location = New System.Drawing.Point(10, 479)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(121, 23)
-        Me.Button7.TabIndex = 6
+        Me.Button7.TabIndex = 4
         Me.Button7.Text = "Expences Calculator"
         Me.Button7.UseVisualStyleBackColor = True
         '
@@ -138,7 +118,7 @@ Partial Class QuoteGenerator4
         Me.Button4.Location = New System.Drawing.Point(137, 479)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(121, 23)
-        Me.Button4.TabIndex = 7
+        Me.Button4.TabIndex = 5
         Me.Button4.Text = "Employee Pay Calculator"
         Me.Button4.UseVisualStyleBackColor = True
         '
@@ -212,33 +192,17 @@ Partial Class QuoteGenerator4
         'Proj_Activate
         '
         Me.Proj_Activate.AllowUserToAddRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_Activate.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Proj_Activate.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_Activate.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.Proj_Activate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_Activate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Proj_Activate.DefaultCellStyle = DataGridViewCellStyle6
         Me.Proj_Activate.EnableHeadersVisualStyles = False
         Me.Proj_Activate.Location = New System.Drawing.Point(9, 200)
         Me.Proj_Activate.Name = "Proj_Activate"
         Me.Proj_Activate.RowHeadersWidth = 51
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_Activate.RowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_Activate.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.Proj_Activate.Size = New System.Drawing.Size(632, 231)
         Me.Proj_Activate.TabIndex = 3
         '
@@ -290,7 +254,7 @@ Partial Class QuoteGenerator4
         Me.Button1.Location = New System.Drawing.Point(489, 1027)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(84, 23)
-        Me.Button1.TabIndex = 5
+        Me.Button1.TabIndex = 6
         Me.Button1.Text = "Previous Page"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -310,7 +274,7 @@ Partial Class QuoteGenerator4
         Me.Button3.Location = New System.Drawing.Point(579, 1027)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(84, 23)
-        Me.Button3.TabIndex = 6
+        Me.Button3.TabIndex = 7
         Me.Button3.Text = "Next Page"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -320,7 +284,7 @@ Partial Class QuoteGenerator4
         Me.Button12.Location = New System.Drawing.Point(300, 1027)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(101, 23)
-        Me.Button12.TabIndex = 13
+        Me.Button12.TabIndex = 5
         Me.Button12.Text = "Insert Page"
         Me.Button12.UseVisualStyleBackColor = True
         '
@@ -328,7 +292,7 @@ Partial Class QuoteGenerator4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(701, 683)
+        Me.ClientSize = New System.Drawing.Size(704, 689)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)

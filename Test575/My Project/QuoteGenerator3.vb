@@ -3,7 +3,6 @@ Imports Microsoft.Office.Interop
 Imports Test575.standardProgramFunctions
 Imports Newtonsoft.Json
 Imports System.IO
-Imports DocumentFormat.OpenXml.Spreadsheet
 
 Public Class QuoteGenerator3
     Public presetsData As List(Of ComponentListPreset)
@@ -43,6 +42,12 @@ Public Class QuoteGenerator3
 
         Proj_CompTotal.Text = "€" + componantsTotal.ToString()
         Me.AutoScroll = True
+    End Sub
+
+    Private Sub QuoteGenerator_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        If e.CloseReason = CloseReason.UserClosing Then
+            endQuoteCreation(e)
+        End If
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click ' Next Page(Top)
