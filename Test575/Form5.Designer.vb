@@ -27,7 +27,6 @@ Partial Class QuoteGen5
         Me.Proj_Training = New System.Windows.Forms.RichTextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -75,22 +74,12 @@ Partial Class QuoteGen5
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(579, 12)
+        Me.Button5.Location = New System.Drawing.Point(12, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(84, 23)
         Me.Button5.TabIndex = 1
         Me.Button5.Text = "Previous Page"
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(12, 12)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(84, 23)
-        Me.Button9.TabIndex = 0
-        Me.Button9.Text = "Back to Menu"
-        Me.Button9.UseVisualStyleBackColor = True
         '
         'QuoteGen5
         '
@@ -98,7 +87,6 @@ Partial Class QuoteGen5
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(701, 383)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "QuoteGen5"
@@ -112,7 +100,6 @@ Partial Class QuoteGen5
 
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button9 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Proj_Training As RichTextBox
     Friend WithEvents Label1 As Label

@@ -35,7 +35,7 @@ Public Class QuoteGenerator2
         goToLastPage()
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Main Menu (top)
+    Private Sub Button9_Click(sender As Object, e As EventArgs)  'Main Menu (top)
         returnToMainMenu()
     End Sub
 

@@ -58,7 +58,7 @@ Public Class QuoteGenerator3
         goToLastPage()
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+    Private Sub Button9_Click(sender As Object, e As EventArgs)
         returnToMainMenu()
     End Sub
 
@@ -123,7 +123,7 @@ Public Class QuoteGenerator3
     End Sub
 
     Function findItemInDatabase(componentCode, calledFromButton)
-        Dim databaseSearchResults As (String, String, Double) = ("", "", 0.00)
+        Dim databaseSearchResults As (String, String, Double, Boolean) = ("", "", 0.00, False)
 
         'Simplifying variable names
         Dim componentId = componentCode
@@ -151,6 +151,7 @@ Public Class QuoteGenerator3
                 databaseSearchResults.Item1 = reader.GetString("Supplier")
                 databaseSearchResults.Item2 = reader.GetString("Description")
                 databaseSearchResults.Item3 = reader.GetDouble("Cost")
+                databaseSearchResults.Item4 = True
             Else
                 If calledFromButton Then
                     MessageBox.Show("Something went wrong")
@@ -277,6 +278,8 @@ Public Class QuoteGenerator3
         Dim presetName As String = Presets.Text
         Dim presetExists As Boolean = False
         Dim presetIndex As Integer
+        Dim atLeastOneMissingComponet As Boolean
+        Dim missingComponants As New List(Of String)
 
         For i As Integer = 0 To presetsData.Count - 1 Step +1
             If presetsData(i).presetName = presetName Then
@@ -294,17 +297,19 @@ Public Class QuoteGenerator3
 
             For i As Integer = 0 To presetsData(presetIndex).components.Count - 1 Step +1
                 'Fill in component missing data
-                Dim databaseSearchResults As (String, String, Double)
+                Dim databaseSearchResults As (String, String, Double, Boolean)
                 Dim componentCode As String = presetsData(presetIndex).components(i).code
                 Dim supplier As String
                 Dim description As String
                 Dim costPerUnit As Double
+                Dim componantExistsInDatabase As Boolean
 
                 databaseSearchResults = findItemInDatabase(componentCode, False)
 
                 supplier = databaseSearchResults.Item1
                 description = databaseSearchResults.Item2
                 costPerUnit = databaseSearchResults.Item3
+                componantExistsInDatabase = databaseSearchResults.Item4
 
                 'Calculate total cost of component type
                 Dim quantity = presetsData(presetIndex).components(i).quantity
@@ -313,26 +318,35 @@ Public Class QuoteGenerator3
                 Dim totalCost = (costPerUnit * quantity) * ((100 + markUp) / 100)
 
                 'Adding line to Data Grid View
-                Dim componentExists As Boolean = False
-                Dim componentIndex As Integer
-                For j As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
-                    If Proj_CompViewer.Rows(j).Cells(1).Value.ToString() = description Then
-                        componentExists = True
-                        componentIndex = j
-                    End If
-                Next
+                If componantExistsInDatabase = True Then
+                    Dim componentExistsInDgvAlready As Boolean = False
+                    Dim componentIndex As Integer
+                    For j As Integer = 0 To Proj_CompViewer.Rows.Count - 1 Step +1
+                        If Proj_CompViewer.Rows(j).Cells(1).Value.ToString() = description Then
+                            componentExistsInDgvAlready = True
+                            componentIndex = j
+                        End If
+                    Next
 
-                If componentExists = True Then
-                    Proj_CompViewer.Rows(componentIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componentIndex).Cells(2).Value)
-                    Proj_CompViewer.Rows(componentIndex).Cells(3).Value = totalCost + Convert.ToDouble(Proj_CompViewer.Rows(componentIndex).Cells(3).Value)
+                    If componentExistsInDgvAlready = True Then
+                        Proj_CompViewer.Rows(componentIndex).Cells(2).Value = quantity + Convert.ToInt32(Proj_CompViewer.Rows(componentIndex).Cells(2).Value)
+                        Proj_CompViewer.Rows(componentIndex).Cells(3).Value = totalCost + Convert.ToDouble(Proj_CompViewer.Rows(componentIndex).Cells(3).Value)
+                    Else
+                        Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost.ToString("C"))
+                    End If
                 Else
-                    Proj_CompViewer.Rows.Add(supplier, description, quantity, totalCost.ToString("C"))
+                    missingComponants.Add(componentCode.ToString())
+                    atLeastOneMissingComponet = True
                 End If
 
                 'Updating componentns total
                 componantsTotal += totalCost
                 Proj_CompTotal.Text = componantsTotal.ToString("C")
             Next
+            'If there were components missing, alert use to which ones are
+            If atLeastOneMissingComponet = True Then
+                MessageBox.Show($"Some componants could not be found in the database and were skipped. Missing compnants: {String.Join(", ", missingComponants)}")
+            End If
         End If
     End Sub
 

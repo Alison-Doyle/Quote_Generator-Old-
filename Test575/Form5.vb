@@ -14,7 +14,7 @@ Public Class QuoteGen5
         End If
     End Sub
 
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to Main Menu
+    Private Sub Button9_Click(sender As Object, e As EventArgs)  'Back to Main Menu
         returnToMainMenu()
     End Sub
 
@@ -47,9 +47,9 @@ Public Class QuoteGen5
 
             MessageBox.Show("Section 5 filled in")
 
-            OpenQuote()
+            'OpenQuote()
         Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
+            MessageBox.Show(ex.Message, "Error")
         Finally
             Try
                 excelApp.ActiveWorkbook.Save()
@@ -74,7 +74,8 @@ Public Class QuoteGen5
 
         Select Case MessageBox.Show(DialogBoxMessage, DialogBoxCaption, MessageBoxButtons.OKCancel)
             Case MessageBoxResult.OK
-                MessageBox.Show("Open Excel")
+                Dim excelApp As New Excel.Application
+
             Case MessageBoxResult.Cancel
                 MessageBox.Show("Do Nothing")
         End Select

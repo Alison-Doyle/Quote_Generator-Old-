@@ -175,14 +175,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="190424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Quote Generator.exe" size="189912">
       <assemblyIdentity name="Quote Generator" version="1.0.0.0" publicKeyToken="5A89E5AAE17434D3" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NIhIyoz8EawbK3Qq99Dxymfz1AS1vCvcKW0yT/sJ75U=</dsig:DigestValue>
+        <dsig:DigestValue>e1NgYUOvgXlC6lAMkyfWQjGcLeMAteZotNswXTVkh70=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -330,7 +330,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>JANcpuRrJJH4c1Uz1vs3DvnuzbUUByGItEbod0ocWDM=</dsig:DigestValue>
+      <dsig:DigestValue>9QvlD9drhKYB4nfQEPN0q7FHsOnUhh/dNGKSipM1Oyo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\Quote_Template(ReadOnly).xlsx" size="43671">

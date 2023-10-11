@@ -46,7 +46,6 @@ Partial Class QuoteGenerator2
         Me.Proj_DiagramPath = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
@@ -291,16 +290,6 @@ Partial Class QuoteGenerator2
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Description of Machine/Line:"
         '
-        'Button9
-        '
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(12, 12)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(84, 23)
-        Me.Button9.TabIndex = 0
-        Me.Button9.Text = "Back to Menu"
-        Me.Button9.UseVisualStyleBackColor = True
-        '
         'Button10
         '
         Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -313,7 +302,7 @@ Partial Class QuoteGenerator2
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(489, 12)
+        Me.Button5.Location = New System.Drawing.Point(12, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(84, 23)
         Me.Button5.TabIndex = 1
@@ -338,7 +327,6 @@ Partial Class QuoteGenerator2
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.BackBtn)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.Button1)
@@ -365,7 +353,6 @@ Partial Class QuoteGenerator2
     Friend WithEvents Proj_Desc As RichTextBox
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
-    Friend WithEvents Button9 As Button
     Friend WithEvents Button10 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Button5 As Button

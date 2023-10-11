@@ -92,7 +92,19 @@ Public Class Settings
     End Sub
 
     Private Sub AddComponentButton_Click(sender As Object, e As EventArgs) Handles addComponentButton.Click
-        AddComponentToPreset(listOfPresets.SelectedItem)
+        Dim componentExists = False
+
+        For i As Integer = 0 To presetDetailsView.Rows.Count - 1 Step +1
+            If (presetDetailsView.Rows(i).Cells(0).Value = componentCode.Text.ToUpper()) Then
+                componentExists = True
+            End If
+        Next
+
+        If componentExists = True Then
+            UpdateExistingComponentInPreset()
+        Else
+            AddComponentToPreset(listOfPresets.SelectedItem)
+        End If
     End Sub
 
     Private Sub DeletePresetButton_Click(sender As Object, e As EventArgs) Handles deletePresetButton.Click
@@ -130,6 +142,18 @@ Public Class Settings
             ComponentSupplier.Text = ComponentViewer.Rows(e.RowIndex).Cells(1).Value
             ComponentDescription.Text = ComponentViewer.Rows(e.RowIndex).Cells(2).Value
             ComponentCost.Text = ComponentViewer.Rows(e.RowIndex).Cells(3).Value
+        Else
+            MessageBox.Show("Please select a valid cell")
+        End If
+    End Sub
+
+    Private Sub PresetDetailsViewer_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles presetDetailsView.CellClick
+
+        'Making sure cell clicked is not a header cell
+        If e.RowIndex >= 0 Then
+            componentCode.Text = presetDetailsView.Rows(e.RowIndex).Cells(0).Value
+            componentQuantity.Text = presetDetailsView.Rows(e.RowIndex).Cells(2).Value
+            componentMarkUp.Text = presetDetailsView.Rows(e.RowIndex).Cells(3).Value
         Else
             MessageBox.Show("Please select a valid cell")
         End If
@@ -289,6 +313,26 @@ Public Class Settings
                 MessageBox.Show("Item does not exist")
             End If
         End If
+    End Sub
+
+    Sub UpdateExistingComponentInPreset()
+        Dim componentIndex As Integer
+
+        For i As Integer = 0 To availablePresets.Count - 1 Step +1
+            If (availablePresets(listOfPresets.SelectedIndex).components(i).code = componentCode.Text.ToUpper()) Then
+                componentIndex = i
+            End If
+        Next
+
+        If String.IsNullOrEmpty(componentQuantity.Text) = False Then
+            availablePresets(listOfPresets.SelectedIndex).components(componentIndex).quantity = componentQuantity.Text
+        End If
+
+        If String.IsNullOrEmpty(componentMarkUp.Text) = False Then
+            availablePresets(listOfPresets.SelectedIndex).components(componentIndex).markUp = componentMarkUp.Text
+        End If
+
+        PopulatePresetDetailsView(listOfPresets.SelectedItem)
     End Sub
 
     Function CalculateCostOfComponent(unitCost As Double, quantity As Int32, markUp As Double)
@@ -563,6 +607,10 @@ Public Class Settings
     End Sub
 
     Private Sub presetDetailsView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles presetDetailsView.CellContentClick
+
+    End Sub
+
+    Private Sub ComponentViewer_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ComponentViewer.CellContentClick
 
     End Sub
 End Class

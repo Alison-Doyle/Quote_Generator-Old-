@@ -29,7 +29,7 @@ Public Class QuoteGen
         goToPage2()
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click 'Back to main menu (top)
+    Private Sub Button8_Click(sender As Object, e As EventArgs)  'Back to main menu (top)
         returnToMainMenu()
     End Sub
 

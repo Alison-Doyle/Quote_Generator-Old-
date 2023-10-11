@@ -65,3 +65,7 @@ C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Q
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.exe
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.xml
 C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.pdb
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Resources\presets.json
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Newtonsoft.Json.dll
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\bin\Release\Newtonsoft.Json.xml
+C:\Users\DavidCannon\Documents\GitHub\Quote_Generator-Old-\Test575\obj\Release\Quote Generator.TrustInfo.xml

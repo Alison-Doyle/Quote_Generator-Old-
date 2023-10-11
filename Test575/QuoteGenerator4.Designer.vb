@@ -22,9 +22,9 @@ Partial Class QuoteGenerator4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Proj_CostBreakDown = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,7 +42,6 @@ Partial Class QuoteGenerator4
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -77,9 +76,9 @@ Partial Class QuoteGenerator4
         'Proj_CostBreakDown
         '
         Me.Proj_CostBreakDown.AllowUserToAddRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_CostBreakDown.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_CostBreakDown.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Proj_CostBreakDown.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_CostBreakDown.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Cost})
         Me.Proj_CostBreakDown.Location = New System.Drawing.Point(10, 508)
@@ -192,17 +191,17 @@ Partial Class QuoteGenerator4
         'Proj_Activate
         '
         Me.Proj_Activate.AllowUserToAddRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_Activate.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_Activate.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_Activate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_Activate.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         Me.Proj_Activate.EnableHeadersVisualStyles = False
         Me.Proj_Activate.Location = New System.Drawing.Point(9, 200)
         Me.Proj_Activate.Name = "Proj_Activate"
         Me.Proj_Activate.RowHeadersWidth = 51
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_Activate.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_Activate.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.Proj_Activate.Size = New System.Drawing.Size(632, 231)
         Me.Proj_Activate.TabIndex = 3
         '
@@ -222,22 +221,12 @@ Partial Class QuoteGenerator4
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(489, 12)
+        Me.Button5.Location = New System.Drawing.Point(12, 12)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(84, 23)
         Me.Button5.TabIndex = 1
         Me.Button5.Text = "Previous Page"
         Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(12, 12)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(84, 23)
-        Me.Button9.TabIndex = 0
-        Me.Button9.Text = "Back to Menu"
-        Me.Button9.UseVisualStyleBackColor = True
         '
         'Button10
         '
@@ -298,7 +287,6 @@ Partial Class QuoteGenerator4
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -315,7 +303,6 @@ Partial Class QuoteGenerator4
 
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button9 As Button
     Friend WithEvents Button10 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button

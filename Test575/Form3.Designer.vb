@@ -22,8 +22,8 @@ Partial Class QuoteGen
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.createFileButton = New System.Windows.Forms.Button()
         Me.selectFileLocationButton = New System.Windows.Forms.Button()
@@ -59,7 +59,6 @@ Partial Class QuoteGen
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.BackBtn = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.MySqlCommand1 = New MySql.Data.MySqlClient.MySqlCommand()
@@ -291,9 +290,9 @@ Partial Class QuoteGen
         'Proj_DocViewer
         '
         Me.Proj_DocViewer.AllowUserToAddRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.Proj_DocViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.Proj_DocViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Proj_DocViewer.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
@@ -302,8 +301,8 @@ Partial Class QuoteGen
         Me.Proj_DocViewer.Name = "Proj_DocViewer"
         Me.Proj_DocViewer.RowHeadersVisible = False
         Me.Proj_DocViewer.RowHeadersWidth = 51
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Proj_DocViewer.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.Proj_DocViewer.Size = New System.Drawing.Size(636, 191)
         Me.Proj_DocViewer.TabIndex = 6
         '
@@ -429,15 +428,6 @@ Partial Class QuoteGen
         Me.Button7.Text = "Next Page"
         Me.Button7.UseVisualStyleBackColor = True
         '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(12, 12)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(84, 23)
-        Me.Button8.TabIndex = 0
-        Me.Button8.Text = "Back to Menu"
-        Me.Button8.UseVisualStyleBackColor = True
-        '
         'BackBtn
         '
         Me.BackBtn.Location = New System.Drawing.Point(12, 922)
@@ -481,7 +471,6 @@ Partial Class QuoteGen
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.BackBtn)
         Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -536,7 +525,6 @@ Partial Class QuoteGen
     Friend WithEvents Proj_DocOwner As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
     Friend WithEvents BackBtn As Button
     Friend WithEvents Button9 As Button
     Friend WithEvents MySqlCommand1 As MySql.Data.MySqlClient.MySqlCommand

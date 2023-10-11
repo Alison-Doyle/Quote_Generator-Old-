@@ -5,12 +5,12 @@
       {
         "code": "A1C1",
         "quantity": 10,
-        "markUp": 10.0
+        "markUp": 25.0
       },
       {
         "code": "A1A1",
-        "quantity": 30,
-        "markUp": 10.0
+        "quantity": 10,
+        "markUp": 25.0
       },
       {
         "code": "A1B1",

@@ -323,7 +323,7 @@ Partial Class Settings
         Me.addComponentButton.Name = "addComponentButton"
         Me.addComponentButton.Size = New System.Drawing.Size(132, 23)
         Me.addComponentButton.TabIndex = 8
-        Me.addComponentButton.Text = "Add to Preset"
+        Me.addComponentButton.Text = "Add/Update"
         Me.addComponentButton.UseVisualStyleBackColor = True
         '
         'Label6
@@ -627,7 +627,7 @@ Partial Class Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 691)
+        Me.ClientSize = New System.Drawing.Size(704, 1148)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.presets)
         Me.Controls.Add(Me.authorizationSettingsContainer)

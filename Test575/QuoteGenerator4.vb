@@ -5,7 +5,7 @@ Public Class QuoteGenerator4
     Public quoteLocation As String
     Public componentsTotal As Double
     Dim i As Integer = 0
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click 'Back to MainMenu
+    Private Sub Button9_Click(sender As Object, e As EventArgs)  'Back to MainMenu
         returnToMainMenu()
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click 'Back Button (Top)

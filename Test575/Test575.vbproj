@@ -207,9 +207,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Classes\ProposedHardware.vb" />
-    <Compile Include="componentListPreset.vb" />
-    <Compile Include="customExceptions.vb" />
+    <Compile Include="Classes\Objects\componentListPreset.vb" />
+    <Compile Include="Classes\customExceptions.vb" />
     <Compile Include="EmployeeCalculator.Designer.vb">
       <DependentUpon>EmployeeCalculator.vb</DependentUpon>
     </Compile>
@@ -253,7 +252,7 @@
     <Compile Include="Form5.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Machine.vb" />
+    <Compile Include="Classes\Objects\Machine.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -282,14 +281,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Classes\Quote.vb" />
     <Compile Include="QuoteGenerator4.Designer.vb">
       <DependentUpon>QuoteGenerator4.vb</DependentUpon>
     </Compile>
     <Compile Include="QuoteGenerator4.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RelatedDocumentation.vb" />
+    <Compile Include="Classes\Objects\RelatedDocumentation.vb" />
     <Compile Include="Settings.Designer.vb">
       <DependentUpon>Settings.vb</DependentUpon>
     </Compile>
@@ -302,7 +300,7 @@
     <Compile Include="SignIn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="standardProgramFunctions.vb" />
+    <Compile Include="Classes\standardProgramFunctions.vb" />
     <Compile Include="StockViewer.Designer.vb">
       <DependentUpon>StockViewer.vb</DependentUpon>
     </Compile>
